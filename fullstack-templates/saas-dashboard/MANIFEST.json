@@ -1,0 +1,53 @@
+{
+  "template": "saas-dashboard",
+  "version": "1.0",
+  "files": {
+    "SKIP": [
+      {"path": "src/lib/supabase/server.ts", "reason": "Pre-built Supabase SSR client"},
+      {"path": "src/lib/supabase/client.ts", "reason": "Pre-built Supabase browser client"},
+      {"path": "src/lib/stripe.ts", "reason": "Stripe client singleton"},
+      {"path": "src/lib/url.ts", "reason": "URL helper"},
+      {"path": "src/middleware.ts", "reason": "Auth middleware with webhook exclusion"},
+      {"path": "src/app/api/webhooks/stripe/route.ts", "reason": "Stripe webhook handler"},
+      {"path": "src/actions/checkout.ts", "reason": "Checkout server action"},
+      {"path": "package.json", "reason": "Dependencies pre-installed"},
+      {"path": "tsconfig.json", "reason": "TypeScript config"},
+      {"path": "src/app/(auth)/layout.tsx", "reason": "Auth gate layout — structural plumbing"},
+      {"path": "src/app/(dashboard)/layout.tsx", "reason": "Dashboard shell — Sidebar + TopNav + auth gate"},
+      {"path": "src/components/dashboard/MetricCard.tsx", "reason": "Reusable component — accepts props"},
+      {"path": "src/components/dashboard/ChartPlaceholder.tsx", "reason": "Reusable chart skeleton"},
+      {"path": "src/components/dashboard/DataTable.tsx", "reason": "Reusable table with search/sort"},
+      {"path": "src/components/billing/PricingCards.tsx", "reason": "Reusable pricing card grid — must remain named export. PricingCards depends on import { CheckoutButton }."},
+      {"path": "src/components/CheckoutButton.tsx", "reason": "Checkout button — must remain named export for PricingCards import."}
+    ],
+    "BRAND_SWAP": [
+      {"path": "tailwind.config.ts", "what": "Replace accent hex #00D4FF with brand primary, #0088CC with brand dim. Keep all other config."},
+      {"path": "src/app/globals.css", "what": "Replace #00D4FF with brand primary in all gradient/glow values. Keep all class names and structure."},
+      {"path": "src/app/layout.tsx", "what": "Replace metadata title and description only. Keep fonts, dark mode, grain overlay."},
+      {"path": "src/app/(auth)/login/page.tsx", "what": "Replace heading text and placeholder email"},
+      {"path": "src/app/(auth)/signup/page.tsx", "what": "Replace heading and success message text"}
+    ],
+    "CUSTOMIZE": [
+      {"path": "src/components/dashboard/Sidebar.tsx", "what": "Replace NAV_ITEMS array (~lines 20-45) and BRAND_NAME constant (~line 129) and logo letter (~line 125). Keep SidebarProvider, collapse logic, sign-out handler."},
+      {"path": "src/components/dashboard/TopNav.tsx", "what": "Replace ROUTE_LABELS map (~line 10-20) with domain route labels. Keep breadcrumb logic, user dropdown, notification bell."},
+      {"path": "src/app/(dashboard)/billing/page.tsx", "what": "Replace PLANS array with real pricing tiers (names, prices, priceIds, features). Keep page structure and PricingCards usage."},
+      {"path": "src/app/(dashboard)/settings/page.tsx", "what": "Replace TABS array labels and NOTIFICATION_OPTIONS object. Do not touch form handlers or tab rendering logic."}
+    ],
+    "REPLACE": [
+      {"path": "src/app/(dashboard)/overview/page.tsx", "what": "Replace METRICS array only. Do not modify grid layout or MetricCard/ChartPlaceholder rendering."},
+      {"path": "src/app/(dashboard)/data/page.tsx", "what": "Replace COLUMNS definition and ROWS/MOCK_DATA array. Keep DataTable component usage and page structure."}
+    ]
+  },
+  "brand_placeholders": {
+    "accent_color": "#00D4FF",
+    "accent_dim_color": "#0088CC",
+    "company_name": "Acme",
+    "logo_letter": "A",
+    "metadata_title": "Dashboard — Your SaaS App"
+  },
+  "create_pattern": {
+    "location": "src/app/(dashboard)/{domain-page}/page.tsx",
+    "examples": ["agents", "calls", "campaigns", "analytics", "integrations"],
+    "guidance": "Create new routes under (dashboard) for domain pages. Follow existing page patterns."
+  }
+}

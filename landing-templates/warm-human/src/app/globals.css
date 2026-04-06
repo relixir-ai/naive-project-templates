@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary antialiased;
+  }
+}
+
+@layer utilities {
+  .opacity-0-start {
+    opacity: 0;
+  }
+}
+
+/* ─── Reading Width ─── */
+.reading-width {
+  max-width: 680px;
+}
+
+/* ─── Warm Shadow ─── */
+.warm-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.warm-shadow-lg {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* ─── Section Dividers ─── */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E7E0D6, transparent);
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+.section-divider-wide {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E7E0D6 20%, #E7E0D6 80%, transparent);
+  margin: 0 auto;
+}
+
+/* ─── Underline Link Animation ─── */
+.underline-link {
+  text-decoration: none;
+  background-image: linear-gradient(#B45309, #B45309);
+  background-size: 0% 1.5px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+.underline-link:hover {
+  background-size: 100% 1.5px;
+}
+
+/* ─── Card Hover ─── */
+.card-warm {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-warm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-color: #D6CFC5;
+}
+
+/* ─── Step connector ─── */
+.step-connector {
+  position: relative;
+}
+.step-connector::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 19px;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, #E7E0D6, transparent);
+}
+
+/* ─── Pull Quote styling ─── */
+.pull-quote {
+  position: relative;
+}
+.pull-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.3em;
+  left: -0.05em;
+  font-size: 5rem;
+  font-family: Georgia, serif;
+  color: rgba(180, 83, 9, 0.12);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ─── Warm glass nav ─── */
+.warm-glass {
+  background: rgba(255, 251, 245, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

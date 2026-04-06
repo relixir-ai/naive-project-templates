@@ -1,0 +1,96 @@
+{
+  "type": "landing-page",
+  "version": "1.0",
+  "variants": {
+    "dark-premium": {
+      "description": "Dev tools, AI, premium SaaS (Vercel/Stripe feel) — DEFAULT",
+      "palette": {
+        "primary": "#EDEDED",
+        "secondary": "#A1A1A1",
+        "accent": "#00D4FF",
+        "background": "#050505",
+        "surface": "#0F0F0F",
+        "border": "#1F1F1F"
+      },
+      "files": {
+        "BRAND_SWAP": [
+          {"path": "tailwind.config.ts", "what": "Replace accent color (#00D4FF) and surface/border hex values with brand colors"},
+          {"path": "src/app/globals.css", "what": "Replace hardcoded hex in gradients and glow effects"},
+          {"path": "src/app/layout.tsx", "what": "Replace metadata title and description with company name"}
+        ],
+        "REPLACE": [
+          {"path": "src/app/page.tsx", "what": "Replace all section content — hero headline, features, social proof, testimonials, CTA"}
+        ]
+      }
+    },
+    "clean-minimal": {
+      "description": "B2B SaaS, productivity (Linear/Notion feel)",
+      "palette": {
+        "primary": "#0A0A0A",
+        "secondary": "#525252",
+        "accent": "#2563EB",
+        "background": "#FAFAFA",
+        "surface": "#FFFFFF",
+        "border": "#E5E5E5"
+      },
+      "files": {
+        "BRAND_SWAP": [
+          {"path": "tailwind.config.ts", "what": "Replace accent color (#2563EB) with brand colors"},
+          {"path": "src/app/globals.css", "what": "Replace hardcoded hex in utilities and gradients"},
+          {"path": "src/app/layout.tsx", "what": "Replace metadata title and description with company name"}
+        ],
+        "REPLACE": [
+          {"path": "src/app/page.tsx", "what": "Replace all section content — hero headline, features, social proof, testimonials, CTA"}
+        ]
+      }
+    },
+    "bold-energetic": {
+      "description": "Consumer products, creative tools (Figma/Arc feel)",
+      "palette": {
+        "primary": "#1A1A2E",
+        "secondary": "#4A4A6A",
+        "accent": "#FF6B35",
+        "accent-secondary": "#7C3AED",
+        "background": "#FFFFFF",
+        "surface": "#F8F7FF",
+        "border": "#E8E5F0"
+      },
+      "files": {
+        "BRAND_SWAP": [
+          {"path": "tailwind.config.ts", "what": "Replace accent (#FF6B35) and accent-secondary (#7C3AED) with brand colors"},
+          {"path": "src/app/globals.css", "what": "Replace hardcoded hex in gradients and animated effects"},
+          {"path": "src/app/layout.tsx", "what": "Replace metadata title and description with company name"}
+        ],
+        "REPLACE": [
+          {"path": "src/app/page.tsx", "what": "Replace all section content — hero headline, features, social proof, testimonials, CTA"}
+        ]
+      }
+    },
+    "warm-human": {
+      "description": "Communities, creators, wellness (Substack/Cal.com feel)",
+      "palette": {
+        "primary": "#1C1917",
+        "secondary": "#57534E",
+        "accent": "#B45309",
+        "accent-light": "#D97706",
+        "background": "#FFFBF5",
+        "surface": "#FFF7ED",
+        "border": "#E7E0D6"
+      },
+      "files": {
+        "BRAND_SWAP": [
+          {"path": "tailwind.config.ts", "what": "Replace accent (#B45309) and accent-light (#D97706) with brand colors"},
+          {"path": "src/app/globals.css", "what": "Replace hardcoded hex in warm gradients and utilities"},
+          {"path": "src/app/layout.tsx", "what": "Replace metadata title and description with company name"}
+        ],
+        "REPLACE": [
+          {"path": "src/app/page.tsx", "what": "Replace all section content — hero headline, features, social proof, testimonials, CTA"}
+        ]
+      }
+    }
+  },
+  "brand_placeholders": {
+    "company_name": "Acme",
+    "metadata_title": "Acme — Your Tagline Here"
+  }
+}

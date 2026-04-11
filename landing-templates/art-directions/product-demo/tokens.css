@@ -48,4 +48,5 @@
   --duration-slow: 420ms;
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --parallax-strength: 1;
+  --space-section-y: 6rem;
 }

@@ -39,7 +39,7 @@
       "industries": ["fintech", "operations", "b2b-saas", "publishing"],
       "artDirections": ["editorial", "enterprise-trust", "product-demo"],
       "requiresProofType": null,
-      "disallowedAdjacencies": ["features/bento", "how-it-works/numbered-steps"]
+      "disallowedAdjacencies": ["how-it-works/numbered-steps"]
     },
     {
       "id": "features/asymmetric-grid",
@@ -52,18 +52,18 @@
       "industries": ["developer-tools", "marketplaces", "ai-saas", "publishing"],
       "artDirections": ["editorial", "product-demo"],
       "requiresProofType": null,
-      "disallowedAdjacencies": ["features/bento", "social-proof/stats"]
+      "disallowedAdjacencies": ["social-proof/stats"]
     },
     {
       "id": "features/bento",
       "family": "features",
       "variant": "bento",
       "filePath": "features/bento.tsx",
-      "purpose": "Asymmetric feature tiles, two dominant plus support cards",
+      "purpose": "Deprecated: tile collage feature layout. Only use if the user explicitly asks for a card mosaic or collage.",
       "density": "medium",
       "geometry": "grid",
       "industries": ["developer-tools", "ai-saas", "operations", "marketplaces"],
-      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
+      "artDirections": [],
       "requiresProofType": null,
       "disallowedAdjacencies": ["features/asymmetric-grid"]
     },
@@ -78,7 +78,7 @@
       "industries": ["publishing", "developer-tools", "fintech", "b2b-saas", "operations"],
       "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": ["features/bento", "features/asymmetric-grid"]
+      "disallowedAdjacencies": ["features/asymmetric-grid"]
     },
     {
       "id": "features/tabbed",

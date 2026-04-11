@@ -11,5 +11,5 @@
     "cta/inline",
     "footer/minimal"
   ],
-  "sectionSuggestionsNote": "Optional starting point only. Agent Phase 1 answers take priority."
+  "sectionSuggestionsNote": "Default path for editorial. Stay close to this unless Phase 1 gives a specific reason to deviate. Prefer open or split layouts and avoid dashboard-like grids."
 }

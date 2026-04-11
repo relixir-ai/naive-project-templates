@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "./globals.css";
 
-const headingFont = Space_Grotesk({
+// REQUIRED: Download Satoshi-Variable.woff2 from https://api.fontshare.com/v2/fonts/download/satoshi
+// and save to public/fonts/Satoshi-Variable.woff2 before building.
+const satoshi = localFont({
+  src: "../../public/fonts/Satoshi-Variable.woff2",
   variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const bodyFont = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,12 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${headingFont.variable} ${bodyFont.variable} font-body bg-background text-primary`}
-      >
+    <html lang="en" className={`scroll-smooth ${satoshi.variable}`}>
+      <body className="font-heading bg-background text-primary">
         <div className="grain-overlay" aria-hidden="true" />
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

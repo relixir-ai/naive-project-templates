@@ -8,11 +8,6 @@
   }
 }
 
-@layer utilities {
-  .opacity-0-start {
-    opacity: 0;
-  }
-}
 
 /* ─── Hero Glow ─── */
 .hero-glow {

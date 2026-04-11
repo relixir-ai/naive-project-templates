@@ -2,8 +2,10 @@
 
 import { motion } from "@/lib/motion";
 import { Container } from "../shared/primitives/Container";
+import { NoiseOverlay } from "../shared/primitives/NoiseOverlay";
 import { Section } from "../shared/primitives/Section";
 import { ButtonLink } from "../shared/primitives/Button";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import type { SectionMeta } from "../shared/tokens";
 
 export const meta = {
@@ -41,10 +43,10 @@ export function HeroEditorial({
   secondaryCta,
 }: HeroEditorialProps) {
   return (
-    <Section className="bg-[var(--color-bg)] text-[var(--color-fg)] overflow-hidden">
-      <Container>
+    <Section className="overflow-hidden bg-[var(--color-bg)] text-[var(--color-fg)]">
+      <NoiseOverlay blend="multiply" opacity={0.024} />
+      <Container className="relative z-10">
         <div className="relative">
-          {/* Eyebrow */}
           {eyebrow ? (
             <motion.p
               initial={{ opacity: 0 }}
@@ -57,14 +59,13 @@ export function HeroEditorial({
             </motion.p>
           ) : null}
 
-          {/* Oversized stacked display headline */}
           <div className="space-y-0 leading-none" aria-label={`${headlineTop} ${headlineBottom}`}>
             <motion.h1
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="font-heading text-8xl font-bold tracking-[-0.05em] sm:text-[10rem] sm:leading-none"
+              className="font-heading text-7xl font-semibold tracking-[-0.06em] sm:text-[9rem] sm:leading-none lg:text-[10rem]"
             >
               {headlineTop}
             </motion.h1>
@@ -74,7 +75,7 @@ export function HeroEditorial({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-                className="font-heading text-8xl font-bold tracking-[-0.05em] text-[var(--color-accent)] sm:text-[10rem] sm:leading-none"
+                className="font-heading text-7xl font-semibold tracking-[-0.06em] text-[var(--color-accent)] sm:text-[9rem] sm:leading-none lg:text-[10rem]"
                 aria-hidden="true"
               >
                 {headlineBottom}
@@ -82,7 +83,6 @@ export function HeroEditorial({
             ) : null}
           </div>
 
-          {/* Thin horizontal rule */}
           <motion.hr
             initial={{ scaleX: 0, originX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -91,7 +91,6 @@ export function HeroEditorial({
             className="mt-10 border-t border-[var(--color-fg)] opacity-20"
           />
 
-          {/* Narrow body column — offset right */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +98,10 @@ export function HeroEditorial({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.32 }}
             className="mt-10 ml-auto max-w-sm sm:max-w-md lg:max-w-lg space-y-6"
           >
-            <p className="text-base leading-8 text-[color-mix(in_srgb,var(--color-fg)_74%,white)]">
+            <div className="max-w-44">
+              <TraceLine delay={0.15} duration={3.8} />
+            </div>
+            <p className="text-base leading-8 text-[var(--color-muted)]">
               {subhead}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">

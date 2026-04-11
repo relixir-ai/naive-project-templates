@@ -1,19 +1,15 @@
 {
   "id": "editorial",
   "label": "Editorial",
-  "bestFor": [
-    "publishing",
-    "creators",
-    "artisanal products",
-    "founder-led stories"
-  ],
+  "aesthetic": "Warmth and considered craft. The feeling of a well-designed book or magazine. Type as the primary design element. Slow, deliberate, human.",
   "motionVocabulary": "restrained",
-  "sectionBias": [
+  "sectionSuggestions": [
     "hero/editorial",
     "social-proof/pull-quote",
+    "features/list",
     "features/alternating-rows",
-    "features/asymmetric-grid",
     "cta/inline",
     "footer/minimal"
-  ]
+  ],
+  "sectionSuggestionsNote": "Optional starting point only. Agent Phase 1 answers take priority."
 }

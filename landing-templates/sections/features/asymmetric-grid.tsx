@@ -24,6 +24,7 @@ interface GridFeature {
 }
 
 interface FeaturesAsymmetricGridProps {
+  id?: string;
   eyebrow?: string;
   heading: string;
   intro?: string;
@@ -31,13 +32,14 @@ interface FeaturesAsymmetricGridProps {
 }
 
 export function FeaturesAsymmetricGrid({
+  id,
   eyebrow,
   heading,
   intro,
   items,
 }: FeaturesAsymmetricGridProps) {
   return (
-    <Section className="bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <Section id={id} className="bg-[var(--color-bg)] text-[var(--color-fg)]">
       <Container>
         <div className="space-y-10">
           <div className="max-w-2xl space-y-3">
@@ -48,7 +50,7 @@ export function FeaturesAsymmetricGrid({
               {heading}
             </h2>
             {intro ? (
-              <p className="text-base leading-7 text-[color-mix(in_srgb,var(--color-fg)_74%,white)]">
+              <p className="text-base leading-7 text-[var(--color-muted)]">
                 {intro}
               </p>
             ) : null}
@@ -72,7 +74,7 @@ export function FeaturesAsymmetricGrid({
                   <h3 className="mt-4 font-heading text-2xl font-semibold tracking-[-0.03em]">
                     {item.title}
                   </h3>
-                  <p className="mt-3 max-w-prose text-sm leading-7 text-[color-mix(in_srgb,var(--color-fg)_72%,white)]">
+                  <p className="mt-3 max-w-prose text-sm leading-7 text-[var(--color-muted)]">
                     {item.description}
                   </p>
                 </article>

@@ -7,723 +7,247 @@
       "family": "cta",
       "variant": "full-bleed",
       "filePath": "cta/full-bleed.tsx",
-      "purpose": "Single decisive closing action with one dominant button",
-      "tone": [
-        "focused",
-        "high-contrast"
-      ],
+      "purpose": "Single decisive closing action, one dominant button",
       "density": "medium",
       "geometry": "split",
-      "industries": [
-        "developer-tools",
-        "fintech",
-        "b2b-saas",
-        "publishing"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["developer-tools", "fintech", "b2b-saas", "publishing"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "cta/inline"
-      ],
-      "tokensRequired": [
-        "color-bg",
-        "color-surface",
-        "color-fg",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "medium"
+      "disallowedAdjacencies": ["cta/inline"]
     },
     {
       "id": "cta/inline",
       "family": "cta",
       "variant": "inline",
       "filePath": "cta/inline.tsx",
-      "purpose": "Compact call-to-action row that closes a page without full-bleed theatrics",
-      "tone": [
-        "direct",
-        "measured",
-        "practical"
-      ],
+      "purpose": "Compact CTA row, no full-bleed theatrics",
       "density": "low",
       "geometry": "split",
-      "industries": [
-        "fintech",
-        "operations",
-        "publishing",
-        "services"
-      ],
-      "artDirections": [
-        "editorial",
-        "enterprise-trust",
-        "product-demo"
-      ],
+      "industries": ["fintech", "operations", "publishing", "services"],
+      "artDirections": ["editorial", "enterprise-trust", "product-demo"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "social-proof/pull-quote",
-        "footer/minimal"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "small"
+      "disallowedAdjacencies": ["social-proof/pull-quote", "footer/minimal"]
     },
     {
       "id": "features/alternating-rows",
       "family": "features",
       "variant": "alternating-rows",
       "filePath": "features/alternating-rows.tsx",
-      "purpose": "Feature explainer rows that alternate copy and supporting evidence panels",
-      "tone": [
-        "specific",
-        "clear",
-        "structured"
-      ],
+      "purpose": "Feature rows alternating copy and evidence panels",
       "density": "medium",
       "geometry": "split",
-      "industries": [
-        "fintech",
-        "operations",
-        "b2b-saas",
-        "publishing"
-      ],
-      "artDirections": [
-        "editorial",
-        "enterprise-trust",
-        "product-demo"
-      ],
+      "industries": ["fintech", "operations", "b2b-saas", "publishing"],
+      "artDirections": ["editorial", "enterprise-trust", "product-demo"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/bento",
-        "how-it-works/numbered-steps"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["features/bento", "how-it-works/numbered-steps"]
     },
     {
       "id": "features/asymmetric-grid",
       "family": "features",
       "variant": "asymmetric-grid",
       "filePath": "features/asymmetric-grid.tsx",
-      "purpose": "Offset feature grid with mixed card widths to break repetitive three-column rhythms",
-      "tone": [
-        "expressive",
-        "specific",
-        "modern"
-      ],
+      "purpose": "Offset feature grid with mixed card widths",
       "density": "medium",
       "geometry": "grid",
-      "industries": [
-        "developer-tools",
-        "marketplaces",
-        "ai-saas",
-        "publishing"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo"
-      ],
+      "industries": ["developer-tools", "marketplaces", "ai-saas", "publishing"],
+      "artDirections": ["editorial", "product-demo"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/bento",
-        "social-proof/stats"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["features/bento", "social-proof/stats"]
     },
     {
       "id": "features/bento",
       "family": "features",
       "variant": "bento",
       "filePath": "features/bento.tsx",
-      "purpose": "Asymmetric feature presentation with two dominant tiles and support cards",
-      "tone": [
-        "specific",
-        "product-led"
-      ],
+      "purpose": "Asymmetric feature tiles, two dominant plus support cards",
       "density": "medium",
       "geometry": "grid",
-      "industries": [
-        "developer-tools",
-        "ai-saas",
-        "operations",
-        "marketplaces"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["developer-tools", "ai-saas", "operations", "marketplaces"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/asymmetric-grid"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["features/asymmetric-grid"]
     },
     {
       "id": "features/list",
       "family": "features",
       "variant": "list",
       "filePath": "features/list.tsx",
-      "purpose": "Numbered feature list with large accent numerals as visual anchors, open layout, no cards",
-      "tone": [
-        "editorial",
-        "structured",
-        "clear"
-      ],
+      "purpose": "Numbered feature list with large accent numerals, open layout",
       "density": "medium",
       "geometry": "list",
-      "industries": [
-        "publishing",
-        "developer-tools",
-        "fintech",
-        "b2b-saas",
-        "operations"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["publishing", "developer-tools", "fintech", "b2b-saas", "operations"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/bento",
-        "features/asymmetric-grid"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["features/bento", "features/asymmetric-grid"]
     },
     {
       "id": "features/tabbed",
       "family": "features",
       "variant": "tabbed",
       "filePath": "features/tabbed.tsx",
-      "purpose": "Tabbed feature narrative for products with a few distinct workflows or user jobs",
-      "tone": [
-        "structured",
-        "product-led",
-        "focused"
-      ],
+      "purpose": "Tabbed feature narrative for distinct workflows",
       "density": "high",
       "geometry": "split",
-      "industries": [
-        "operations",
-        "fintech",
-        "ai-saas",
-        "developer-tools"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["operations", "fintech", "ai-saas", "developer-tools"],
+      "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "how-it-works/timeline",
-        "pricing/table"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["how-it-works/timeline", "pricing/table"]
     },
     {
       "id": "footer/comprehensive",
       "family": "footer",
       "variant": "comprehensive",
       "filePath": "footer/comprehensive.tsx",
-      "purpose": "Multi-column footer for products that need nav depth, legal links, or contact paths",
-      "tone": [
-        "structured",
-        "grounded",
-        "complete"
-      ],
+      "purpose": "Multi-column footer with nav depth and legal links",
       "density": "medium",
       "geometry": "grid",
-      "industries": [
-        "developer-tools",
-        "fintech",
-        "ai-saas",
-        "operations"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust",
-        "editorial"
-      ],
+      "industries": ["developer-tools", "fintech", "ai-saas", "operations"],
+      "artDirections": ["product-demo", "enterprise-trust", "editorial"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "cta/full-bleed"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "medium"
+      "disallowedAdjacencies": ["cta/full-bleed"]
     },
     {
       "id": "footer/minimal",
       "family": "footer",
       "variant": "minimal",
       "filePath": "footer/minimal.tsx",
-      "purpose": "Compact footer with company note and a small link set",
-      "tone": [
-        "restrained",
-        "clean"
-      ],
+      "purpose": "Compact footer with company note and small link set",
       "density": "low",
       "geometry": "split",
-      "industries": [
-        "developer-tools",
-        "fintech",
-        "publishing",
-        "services"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["developer-tools", "fintech", "publishing", "services"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [],
-      "tokensRequired": [
-        "color-bg",
-        "color-fg",
-        "color-border",
-        "font-body"
-      ],
-      "estimatedHeight": "small"
+      "disallowedAdjacencies": []
     },
     {
       "id": "hero/editorial",
       "family": "hero",
       "variant": "editorial",
       "filePath": "hero/editorial.tsx",
-      "purpose": "Magazine-cover editorial hero with oversized stacked display type and offset body column",
-      "tone": [
-        "editorial",
-        "confident",
-        "specific"
-      ],
+      "purpose": "Magazine-cover hero, oversized stacked display type",
       "density": "medium",
       "geometry": "open",
-      "industries": [
-        "publishing",
-        "developer-tools",
-        "fintech",
-        "b2b-saas"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["publishing", "developer-tools", "fintech", "b2b-saas"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": "logos",
-      "disallowedAdjacencies": [
-        "hero/stat-led"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["hero/stat-led"]
     },
     {
       "id": "hero/product-demo",
       "family": "hero",
       "variant": "product-demo",
       "filePath": "hero/product-demo.tsx",
-      "purpose": "Product-forward hero with a live-surface panel and compact proof bar",
-      "tone": [
-        "direct",
-        "technical",
-        "product-led"
-      ],
+      "purpose": "Product-forward hero with live-surface panel and proof bar",
       "density": "high",
       "geometry": "split",
-      "industries": [
-        "developer-tools",
-        "ai-saas",
-        "operations",
-        "open-source"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["developer-tools", "ai-saas", "operations", "open-source"],
+      "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": "stats",
-      "disallowedAdjacencies": [
-        "social-proof/pull-quote"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["social-proof/pull-quote"]
     },
     {
       "id": "hero/stat-led",
       "family": "hero",
       "variant": "stat-led",
       "filePath": "hero/stat-led.tsx",
-      "purpose": "Proof-first hero with concise copy and a structured metrics rail",
-      "tone": [
-        "calm",
-        "credible",
-        "proof-forward"
-      ],
+      "purpose": "Proof-first hero with metrics rail",
       "density": "medium",
       "geometry": "split",
-      "industries": [
-        "fintech",
-        "operations",
-        "b2b-saas",
-        "local-services"
-      ],
-      "artDirections": [
-        "enterprise-trust",
-        "product-demo"
-      ],
+      "industries": ["fintech", "operations", "b2b-saas", "local-services"],
+      "artDirections": ["enterprise-trust", "product-demo"],
       "requiresProofType": "stats",
-      "disallowedAdjacencies": [
-        "social-proof/stats"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["social-proof/stats"]
     },
     {
       "id": "how-it-works/numbered-steps",
       "family": "how-it-works",
       "variant": "numbered-steps",
       "filePath": "how-it-works/numbered-steps.tsx",
-      "purpose": "Three-step process explanation with explicit sequence and action cues",
-      "tone": [
-        "direct",
-        "structured",
-        "practical"
-      ],
+      "purpose": "Three-step process with explicit sequence and action cues",
       "density": "medium",
       "geometry": "stack",
-      "industries": [
-        "ai-saas",
-        "developer-tools",
-        "operations",
-        "services"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["ai-saas", "developer-tools", "operations", "services"],
+      "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/alternating-rows",
-        "pricing/cards"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "medium"
+      "disallowedAdjacencies": ["features/alternating-rows", "pricing/cards"]
     },
     {
       "id": "how-it-works/timeline",
       "family": "how-it-works",
       "variant": "timeline",
       "filePath": "how-it-works/timeline.tsx",
-      "purpose": "Sequential process timeline for onboarding, implementation, or delivery flows",
-      "tone": [
-        "calm",
-        "structured",
-        "practical"
-      ],
+      "purpose": "Sequential timeline for onboarding or delivery flows",
       "density": "medium",
       "geometry": "split",
-      "industries": [
-        "services",
-        "operations",
-        "fintech",
-        "local-services"
-      ],
-      "artDirections": [
-        "enterprise-trust",
-        "editorial"
-      ],
+      "industries": ["services", "operations", "fintech", "local-services"],
+      "artDirections": ["enterprise-trust", "editorial"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/tabbed",
-        "pricing/table"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "medium"
+      "disallowedAdjacencies": ["features/tabbed", "pricing/table"]
     },
     {
       "id": "pricing/cards",
       "family": "pricing",
       "variant": "cards",
       "filePath": "pricing/cards.tsx",
-      "purpose": "Tiered plan cards with a single recommended option and scoped feature lists",
-      "tone": [
-        "commercial",
-        "clear",
-        "structured"
-      ],
+      "purpose": "Tiered plan cards with recommended option",
       "density": "medium",
       "geometry": "grid",
-      "industries": [
-        "ai-saas",
-        "developer-tools",
-        "operations",
-        "b2b-saas"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["ai-saas", "developer-tools", "operations", "b2b-saas"],
+      "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "social-proof/stats",
-        "how-it-works/numbered-steps"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["social-proof/stats", "how-it-works/numbered-steps"]
     },
     {
       "id": "pricing/table",
       "family": "pricing",
       "variant": "table",
       "filePath": "pricing/table.tsx",
-      "purpose": "Comparison table for products where plan differences need explicit side-by-side visibility",
-      "tone": [
-        "structured",
-        "transparent",
-        "commercial"
-      ],
+      "purpose": "Comparison table for side-by-side plan differences",
       "density": "high",
       "geometry": "grid",
-      "industries": [
-        "developer-tools",
-        "operations",
-        "fintech",
-        "b2b-saas"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["developer-tools", "operations", "fintech", "b2b-saas"],
+      "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "features/tabbed",
-        "how-it-works/timeline"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-surface",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "large"
+      "disallowedAdjacencies": ["features/tabbed", "how-it-works/timeline"]
     },
     {
       "id": "social-proof/logos",
       "family": "social-proof",
       "variant": "logos",
       "filePath": "social-proof/logos.tsx",
-      "purpose": "Low-noise proof strip for trusted logos or named customers",
-      "tone": [
-        "credible",
-        "calm"
-      ],
+      "purpose": "Low-noise proof strip of trusted logos or named customers",
       "density": "low",
       "geometry": "open",
-      "industries": [
-        "developer-tools",
-        "fintech",
-        "b2b-saas",
-        "services"
-      ],
-      "artDirections": [
-        "editorial",
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["developer-tools", "fintech", "b2b-saas", "services"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
       "requiresProofType": "logos",
-      "disallowedAdjacencies": [
-        "social-proof/stats"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-border",
-        "font-body"
-      ],
-      "estimatedHeight": "small"
+      "disallowedAdjacencies": ["social-proof/stats"]
     },
     {
       "id": "social-proof/pull-quote",
       "family": "social-proof",
       "variant": "pull-quote",
       "filePath": "social-proof/pull-quote.tsx",
-      "purpose": "Single customer quote used as qualitative proof between denser sections",
-      "tone": [
-        "human",
-        "specific",
-        "grounded"
-      ],
+      "purpose": "Single customer quote as qualitative proof",
       "density": "low",
       "geometry": "split",
-      "industries": [
-        "publishing",
-        "wellness",
-        "creator-tools",
-        "b2b-saas"
-      ],
-      "artDirections": [
-        "editorial",
-        "enterprise-trust"
-      ],
+      "industries": ["publishing", "wellness", "creator-tools", "b2b-saas"],
+      "artDirections": ["editorial", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "hero/product-demo",
-        "cta/full-bleed"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "medium"
+      "disallowedAdjacencies": ["hero/product-demo", "cta/full-bleed"]
     },
     {
       "id": "social-proof/stats",
       "family": "social-proof",
       "variant": "stats",
       "filePath": "social-proof/stats.tsx",
-      "purpose": "Compact credibility bar built from product or customer metrics",
-      "tone": [
-        "measured",
-        "credible",
-        "concise"
-      ],
+      "purpose": "Compact credibility bar from product or customer metrics",
       "density": "low",
       "geometry": "grid",
-      "industries": [
-        "fintech",
-        "ai-saas",
-        "operations",
-        "developer-tools"
-      ],
-      "artDirections": [
-        "product-demo",
-        "enterprise-trust"
-      ],
+      "industries": ["fintech", "ai-saas", "operations", "developer-tools"],
+      "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": null,
-      "disallowedAdjacencies": [
-        "hero/stat-led",
-        "pricing/cards"
-      ],
-      "tokensRequired": [
-        "color-fg",
-        "color-bg",
-        "color-border",
-        "color-accent",
-        "font-heading",
-        "font-body"
-      ],
-      "estimatedHeight": "small"
+      "disallowedAdjacencies": ["hero/stat-led", "pricing/cards"]
     }
   ]
 }

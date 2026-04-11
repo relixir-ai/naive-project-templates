@@ -1,6 +1,10 @@
 import { ButtonLink } from "../shared/primitives/Button";
 import { Container } from "../shared/primitives/Container";
+import { GlowEdge } from "../shared/primitives/GlowEdge";
+import { GridOverlay } from "../shared/primitives/GridOverlay";
+import { NoiseOverlay } from "../shared/primitives/NoiseOverlay";
 import { Section } from "../shared/primitives/Section";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import type { SectionMeta } from "../shared/tokens";
 
 export const meta = {
@@ -47,7 +51,7 @@ export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsPro
               {heading}
             </h2>
             {intro ? (
-              <p className="text-base leading-7 text-[color-mix(in_srgb,var(--color-fg)_74%,white)]">
+              <p className="text-base leading-7 text-[var(--color-muted)]">
                 {intro}
               </p>
             ) : null}
@@ -57,12 +61,17 @@ export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsPro
             {plans.map((plan) => (
               <article
                 key={plan.name}
-                className={`flex h-full flex-col rounded-[var(--radius-card)] border p-6 ${
+                className={`relative overflow-hidden flex h-full flex-col rounded-[var(--radius-card)] border p-6 shadow-[var(--shadow-2)] ${
                   plan.featured
-                    ? "border-[var(--color-accent)] bg-[var(--color-surface)]"
-                    : "border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-bg)_92%,white)]"
+                    ? "border-[var(--color-accent)] bg-[var(--color-panel-solid)]"
+                    : "border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-surface)_88%,transparent)]"
                 }`}
               >
+                <GridOverlay size={36} />
+                <NoiseOverlay blend="screen" opacity={plan.featured ? 0.02 : 0.012} />
+                {plan.featured ? <GlowEdge edge="top" /> : null}
+
+                <div className="relative z-10">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-3">
                     <h3 className="font-heading text-2xl font-semibold tracking-[-0.03em]">
@@ -77,17 +86,20 @@ export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsPro
                   <div className="flex items-end gap-2">
                     <p className="font-heading text-4xl font-semibold tracking-[-0.04em]">{plan.price}</p>
                     {plan.cadence ? (
-                      <p className="pb-1 text-sm text-[color-mix(in_srgb,var(--color-fg)_64%,white)]">
+                      <p className="pb-1 text-sm text-[var(--color-subtle)]">
                         {plan.cadence}
                       </p>
                     ) : null}
                   </div>
-                  <p className="text-sm leading-7 text-[color-mix(in_srgb,var(--color-fg)_72%,white)]">
+                  <div className="max-w-[12rem]">
+                    <TraceLine delay={0.1} duration={3 + plans.indexOf(plan) * 0.3} />
+                  </div>
+                  <p className="text-sm leading-7 text-[var(--color-muted)]">
                     {plan.summary}
                   </p>
                 </div>
 
-                <ul className="mt-6 flex-1 space-y-3 text-sm leading-6 text-[color-mix(in_srgb,var(--color-fg)_78%,white)]">
+                <ul className="mt-6 flex-1 space-y-3 text-sm leading-6 text-[var(--color-muted)]">
                   {plan.features.map((feature) => (
                     <li key={`${plan.name}-${feature}`} className="flex gap-3">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
@@ -104,6 +116,7 @@ export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsPro
                   >
                     {plan.cta.text}
                   </ButtonLink>
+                </div>
                 </div>
               </article>
             ))}

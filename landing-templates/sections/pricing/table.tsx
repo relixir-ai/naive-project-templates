@@ -1,5 +1,6 @@
 import { ButtonLink } from "../shared/primitives/Button";
 import { Container } from "../shared/primitives/Container";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import { Section } from "../shared/primitives/Section";
 import type { SectionMeta } from "../shared/tokens";
 
@@ -58,7 +59,7 @@ export function PricingTable({
               {heading}
             </h2>
             {intro ? (
-              <p className="text-base leading-7 text-[color-mix(in_srgb,var(--color-fg)_74%,white)]">
+              <p className="text-base leading-7 text-[var(--color-muted)]">
                 {intro}
               </p>
             ) : null}
@@ -70,10 +71,13 @@ export function PricingTable({
               {columns.map((column) => (
                 <div key={column.name} className="border-r border-[var(--color-border)] px-5 py-6 last:border-r-0">
                   <p className="font-heading text-2xl font-semibold tracking-[-0.03em]">{column.name}</p>
+                  <div className="mt-3 max-w-28">
+                    <TraceLine delay={columns.indexOf(column) * 0.08} duration={3.2} />
+                  </div>
                   <div className="mt-3 flex items-end gap-2">
                     <p className="font-heading text-3xl font-semibold tracking-[-0.04em]">{column.price}</p>
                     {column.cadence ? (
-                      <p className="pb-1 text-sm text-[color-mix(in_srgb,var(--color-fg)_64%,white)]">
+                      <p className="pb-1 text-sm text-[var(--color-subtle)]">
                         {column.cadence}
                       </p>
                     ) : null}
@@ -97,11 +101,14 @@ export function PricingTable({
                   {row.label}
                 </div>
                 {row.values.map((value, valueIndex) => (
-                  <div
-                    key={`${row.label}-${valueIndex}`}
-                    className="border-r border-[var(--color-border)] px-5 py-4 text-sm text-[color-mix(in_srgb,var(--color-fg)_72%,white)] last:border-r-0"
-                  >
-                    {value}
+                <div
+                  key={`${row.label}-${valueIndex}`}
+                  className="border-r border-[var(--color-border)] px-5 py-4 text-sm text-[var(--color-muted)] last:border-r-0"
+                >
+                    <span className="inline-flex items-center gap-3">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-soft)]" />
+                      <span>{value}</span>
+                    </span>
                   </div>
                 ))}
               </div>

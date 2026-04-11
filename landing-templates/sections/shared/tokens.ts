@@ -21,7 +21,8 @@ export type TokenKey =
   | "shadow-1" | "shadow-2" | "shadow-3" | "shadow-inset"
   | "radius-sm" | "radius-md" | "radius-lg" | "radius-card"
   | "duration-fast" | "duration-base" | "duration-slow" | "ease-spring"
-  | "font-display" | "font-body";
+  | "parallax-strength" | "texture-blend"
+  | "font-display" | "font-heading" | "font-body";
 
 export interface SectionMeta {
   family: SectionFamily;

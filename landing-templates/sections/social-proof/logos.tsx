@@ -1,4 +1,5 @@
 import { Container } from "../shared/primitives/Container";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import { Section } from "../shared/primitives/Section";
 import type { SectionMeta } from "../shared/tokens";
 
@@ -31,28 +32,34 @@ interface LogosProofProps {
 
 export function LogosProof({ label, logos }: LogosProofProps) {
   return (
-    <Section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <Section className="border-y border-[var(--color-border-subtle)] bg-[var(--color-surface)] text-[var(--color-fg)]">
       <Container>
-        <div className="space-y-6">
-          <p className="text-center text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+        <div className="space-y-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
             {label}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            </p>
+            <div className="w-full max-w-xl">
+              <TraceLine duration={3.4} delay={0.1} />
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {logos.map((logo) =>
               logo.src ? (
-                <img
-                  key={logo.name}
-                  src={logo.src}
-                  alt={logo.alt ?? logo.name}
-                  className="h-6 w-auto opacity-60 grayscale transition-opacity hover:opacity-100"
-                />
+                <div key={logo.name} className="flex min-h-20 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-panel-solid)_78%,transparent)] px-5 py-4 shadow-[var(--shadow-1)]">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt ?? logo.name}
+                    className="h-6 w-auto opacity-60 grayscale transition-opacity hover:opacity-100"
+                  />
+                </div>
               ) : (
-                <span
+                <div
                   key={logo.name}
-                  className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-muted)]"
+                  className="flex min-h-20 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-panel-solid)_78%,transparent)] px-5 py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-muted)] shadow-[var(--shadow-1)]"
                 >
                   {logo.name}
-                </span>
+                </div>
               )
             )}
           </div>

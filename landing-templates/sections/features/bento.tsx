@@ -26,15 +26,16 @@ interface FeatureItem {
 }
 
 interface FeaturesBentoProps {
+  id?: string;
   eyebrow?: string;
   heading: string;
   intro?: string;
   items: FeatureItem[];
 }
 
-export function FeaturesBento({ eyebrow, heading, intro, items }: FeaturesBentoProps) {
+export function FeaturesBento({ id, eyebrow, heading, intro, items }: FeaturesBentoProps) {
   return (
-    <Section className="bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <Section id={id} className="bg-[var(--color-bg)] text-[var(--color-fg)]">
       <Container>
         <div className="space-y-10">
           <div className="max-w-2xl space-y-3">
@@ -45,7 +46,7 @@ export function FeaturesBento({ eyebrow, heading, intro, items }: FeaturesBentoP
               {heading}
             </h2>
             {intro ? (
-              <p className="text-base leading-7 text-[color-mix(in_srgb,var(--color-fg)_75%,white)]">
+              <p className="text-base leading-7 text-[var(--color-muted)]">
                 {intro}
               </p>
             ) : null}
@@ -69,7 +70,7 @@ export function FeaturesBento({ eyebrow, heading, intro, items }: FeaturesBentoP
                     <h3 className="font-heading text-2xl font-semibold tracking-[-0.03em]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 max-w-prose text-sm leading-7 text-[color-mix(in_srgb,var(--color-fg)_74%,white)]">
+                    <p className="mt-3 max-w-prose text-sm leading-7 text-[var(--color-muted)]">
                       {item.description}
                     </p>
                   </article>

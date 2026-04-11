@@ -1,5 +1,9 @@
 import { Container } from "../shared/primitives/Container";
+import { GridOverlay } from "../shared/primitives/GridOverlay";
+import { MetricRail } from "../shared/primitives/MetricRail";
+import { NoiseOverlay } from "../shared/primitives/NoiseOverlay";
 import { Section } from "../shared/primitives/Section";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import type { SectionMeta } from "../shared/tokens";
 
 export const meta = {
@@ -28,22 +32,20 @@ interface SocialProofStatsProps {
 
 export function SocialProofStats({ label, items }: SocialProofStatsProps) {
   return (
-    <Section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)]">
-      <Container>
-        <div className="space-y-6">
-          {label ? (
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-accent)]">{label}</p>
-          ) : null}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {items.map((item) => (
-              <article key={item.label} className="space-y-2">
-                <p className="font-heading text-4xl font-semibold tracking-[-0.04em]">{item.value}</p>
-                <p className="text-sm leading-6 text-[color-mix(in_srgb,var(--color-fg)_66%,white)]">
-                  {item.label}
-                </p>
-              </article>
-            ))}
+    <Section className="relative overflow-hidden border-y border-[var(--color-border-subtle)] bg-[var(--color-panel-solid)] text-[var(--color-fg)]">
+      <GridOverlay size={44} />
+      <NoiseOverlay blend="screen" opacity={0.018} />
+      <Container className="relative z-10">
+        <div className="space-y-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            {label ? (
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-accent)]">{label}</p>
+            ) : <span />}
+            <div className="w-full max-w-xl">
+              <TraceLine duration={3.6} delay={0.1} />
+            </div>
           </div>
+          <MetricRail metrics={items} />
         </div>
       </Container>
     </Section>

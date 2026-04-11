@@ -1,4 +1,5 @@
 import { Container } from "../shared/primitives/Container";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import { Section } from "../shared/primitives/Section";
 import type { SectionMeta } from "../shared/tokens";
 
@@ -29,12 +30,16 @@ interface MinimalFooterProps {
 
 export function MinimalFooter({ companyName, description, links }: MinimalFooterProps) {
   return (
-    <Section className="border-t border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <Section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-fg)]">
       <Container>
-        <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
+        <div className="space-y-8">
+          <div className="max-w-40">
+            <TraceLine duration={3.6} delay={0.15} />
+          </div>
+          <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-2">
             <p className="font-heading text-lg font-semibold">{companyName}</p>
-            <p className="max-w-md text-sm leading-6 text-[color-mix(in_srgb,var(--color-fg)_72%,white)]">
+            <p className="max-w-md text-sm leading-6 text-[var(--color-muted)]">
               {description}
             </p>
           </div>
@@ -43,11 +48,12 @@ export function MinimalFooter({ companyName, description, links }: MinimalFooter
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[color-mix(in_srgb,var(--color-fg)_76%,white)] transition-colors hover:text-[var(--color-fg)]"
+                className="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-fg)]"
               >
                 {link.label}
               </a>
             ))}
+          </div>
           </div>
         </div>
       </Container>

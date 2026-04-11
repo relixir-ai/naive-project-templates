@@ -35,7 +35,7 @@ export function NumberedSteps({
   steps,
 }: NumberedStepsProps) {
   return (
-    <Section className="bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <Section className="bg-[var(--color-surface)] text-[var(--color-fg)]">
       <Container>
         <div className="space-y-10">
           <div className="max-w-2xl space-y-3">
@@ -46,7 +46,7 @@ export function NumberedSteps({
               {heading}
             </h2>
             {intro ? (
-              <p className="text-base leading-7 text-[color-mix(in_srgb,var(--color-fg)_74%,white)]">
+              <p className="text-base leading-7 text-[var(--color-muted)]">
                 {intro}
               </p>
             ) : null}
@@ -64,7 +64,7 @@ export function NumberedSteps({
                 <h3 className="mt-4 font-heading text-2xl font-semibold tracking-[-0.03em]">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-[color-mix(in_srgb,var(--color-fg)_72%,white)]">
+                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
                   {step.description}
                 </p>
               </li>

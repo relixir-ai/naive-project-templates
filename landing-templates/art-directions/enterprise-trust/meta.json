@@ -1,14 +1,9 @@
 {
   "id": "enterprise-trust",
   "label": "Enterprise Trust",
-  "bestFor": [
-    "fintech",
-    "operations",
-    "local services",
-    "conservative b2b"
-  ],
+  "aesthetic": "Clean authority. The feeling of a well-run institution. Light surfaces, measured motion, nothing decorative. Confidence without flash.",
   "motionVocabulary": "measured",
-  "sectionBias": [
+  "sectionSuggestions": [
     "hero/stat-led",
     "social-proof/logos",
     "features/alternating-rows",
@@ -16,5 +11,6 @@
     "pricing/table",
     "cta/inline",
     "footer/comprehensive"
-  ]
+  ],
+  "sectionSuggestionsNote": "Optional starting point only. Agent Phase 1 answers take priority."
 }

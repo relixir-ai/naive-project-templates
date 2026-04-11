@@ -1,20 +1,16 @@
 {
   "id": "product-demo",
   "label": "Product Demo",
-  "bestFor": [
-    "developer tools",
-    "ai saas",
-    "software products",
-    "marketplaces"
-  ],
+  "aesthetic": "The feeling of watching something work in real time. Precision, control, surfaces that look like they're actually running. Dark, technical, specific.",
   "motionVocabulary": "crisp",
-  "sectionBias": [
+  "sectionSuggestions": [
     "hero/product-demo",
     "social-proof/stats",
     "features/tabbed",
-    "features/bento",
+    "features/list",
     "pricing/cards",
     "cta/full-bleed",
     "footer/comprehensive"
-  ]
+  ],
+  "sectionSuggestionsNote": "Optional starting point only. Agent Phase 1 answers take priority."
 }

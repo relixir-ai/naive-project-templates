@@ -1,46 +1,46 @@
 :root {
   /* Existing (keep) */
   --color-fg: #f4f7fb;
-  --color-bg: #08111f;
-  --color-accent: #43d6ff;
+  --color-bg: #07111c;
+  --color-accent: #7de8ff;
   --font-display: "Satoshi", sans-serif;
   --font-heading: "Satoshi", sans-serif;
   --font-body: "Satoshi", sans-serif;
 
   /* Surface hierarchy */
-  --color-surface: #0f1b2d;
-  --color-surface-2: #162236;
-  --color-panel-solid: #0d1926;
+  --color-surface: #0d1826;
+  --color-surface-2: #122032;
+  --color-panel-solid: #09131f;
 
   /* Text */
-  --color-muted: #6b8cae;
-  --color-subtle: #3a5470;
+  --color-muted: #8da8c2;
+  --color-subtle: #5e7690;
 
   /* Accent range */
-  --color-accent-soft: rgba(67, 214, 255, 0.08);
-  --color-accent-strong: #00c4f0;
-  --color-accent-foreground: #08111f;
+  --color-accent-soft: rgba(125, 232, 255, 0.12);
+  --color-accent-strong: #31cde8;
+  --color-accent-foreground: #07111c;
 
   /* Border + overlays */
-  --color-border: #1e3248;
-  --color-border-subtle: #152840;
-  --line-opacity: 0.12;
-  --grid-opacity: 0.06;
-  --texture-opacity: 0.04;
+  --color-border: #22354d;
+  --color-border-subtle: #15283c;
+  --line-opacity: 0.14;
+  --grid-opacity: 0.08;
+  --texture-opacity: 0.05;
   --texture-blend: overlay;
 
   /* Shadows */
   --shadow-color: 210 60% 5%;
-  --shadow-1: 0 1px 2px -1px hsl(var(--shadow-color) / 0.3);
-  --shadow-2: 0 3px 6px -2px hsl(var(--shadow-color) / 0.4);
-  --shadow-3: 0 8px 16px -4px hsl(var(--shadow-color) / 0.5);
-  --shadow-inset: inset 0 1px 2px hsl(var(--shadow-color) / 0.4);
+  --shadow-1: 0 2px 4px -2px hsl(var(--shadow-color) / 0.35);
+  --shadow-2: 0 8px 24px -10px hsl(var(--shadow-color) / 0.45);
+  --shadow-3: 0 28px 70px -28px hsl(var(--shadow-color) / 0.72);
+  --shadow-inset: inset 0 1px 2px hsl(var(--shadow-color) / 0.46);
 
   /* Radius scale */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 4px;
-  --radius-card: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-card: 18px;
 
   /* Motion */
   --duration-fast: 120ms;

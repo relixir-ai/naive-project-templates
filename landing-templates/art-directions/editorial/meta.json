@@ -1,0 +1,19 @@
+{
+  "id": "editorial",
+  "label": "Editorial",
+  "bestFor": [
+    "publishing",
+    "creators",
+    "artisanal products",
+    "founder-led stories"
+  ],
+  "motionVocabulary": "restrained",
+  "sectionBias": [
+    "hero/editorial",
+    "social-proof/pull-quote",
+    "features/alternating-rows",
+    "features/asymmetric-grid",
+    "cta/inline",
+    "footer/minimal"
+  ]
+}

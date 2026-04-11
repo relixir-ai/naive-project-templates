@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { SmoothScroll } from "@/components/SmoothScroll";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// REQUIRED: Download Satoshi-Variable.woff2 from https://api.fontshare.com/v2/fonts/download/satoshi
-// and save to public/fonts/Satoshi-Variable.woff2 before building.
-const satoshi = localFont({
-  src: "../../public/fonts/Satoshi-Variable.woff2",
+const headingFont = Inter({
   variable: "--font-heading",
-  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const bodyFont = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const monoFont = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -23,9 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${satoshi.variable}`}>
-      <body className="font-heading bg-background text-primary">
-        <SmoothScroll>{children}</SmoothScroll>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${headingFont.variable} ${bodyFont.variable} ${monoFont.variable} font-body bg-background text-primary`}
+      >
+        {children}
       </body>
     </html>
   );

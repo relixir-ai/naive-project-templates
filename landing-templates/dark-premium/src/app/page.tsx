@@ -129,22 +129,22 @@ export default function LandingPage() {
       <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
         <div className="hero-glow" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <div className="motion-preset-slide-from-bottom motion-duration-500">
+          <div className="opacity-0-start animate-fade-up">
             <span className="inline-flex items-center gap-2 text-[11px] font-medium tracking-widest uppercase text-accent/90 mb-8 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-glow" />
               Now in Public Beta
             </span>
           </div>
-          <h1 className="motion-preset-slide-from-bottom motion-duration-700 motion-delay-100 font-heading text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.95] text-gradient">
+          <h1 className="opacity-0-start animate-fade-up-d1 font-heading text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.95] text-gradient">
             Ship code without
             <br />
             breaking prod
           </h1>
-          <p className="motion-preset-slide-from-bottom motion-duration-700 motion-delay-200 mt-6 text-base sm:text-lg text-secondary max-w-xl mx-auto leading-relaxed">
+          <p className="opacity-0-start animate-fade-up-d2 mt-6 text-base sm:text-lg text-secondary max-w-xl mx-auto leading-relaxed">
             Instant previews, zero-downtime deploys, and built-in
             observability — the modern deployment platform for teams that ship fast.
           </p>
-          <div className="motion-preset-slide-from-bottom motion-duration-700 motion-delay-300 mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="opacity-0-start animate-fade-up-d3 mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="#cta" className="accent-gradient btn-shine text-background font-medium px-8 py-3 rounded-full text-sm">
               Start Building Free →
             </a>
@@ -155,7 +155,7 @@ export default function LandingPage() {
           </div>
 
           {/* Dashboard Mockup */}
-          <div className="motion-preset-slide-from-bottom motion-duration-700 motion-delay-500 mt-16 sm:mt-20 relative mx-auto max-w-3xl">
+          <div className="opacity-0-start animate-fade-up-d4 mt-16 sm:mt-20 relative mx-auto max-w-3xl">
             <div className="mockup-glow rounded-xl border border-border bg-surface overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface-bright/50">
                 <div className="flex gap-1.5">

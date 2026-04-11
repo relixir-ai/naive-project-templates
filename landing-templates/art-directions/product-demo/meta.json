@@ -1,0 +1,20 @@
+{
+  "id": "product-demo",
+  "label": "Product Demo",
+  "bestFor": [
+    "developer tools",
+    "ai saas",
+    "software products",
+    "marketplaces"
+  ],
+  "motionVocabulary": "crisp",
+  "sectionBias": [
+    "hero/product-demo",
+    "social-proof/stats",
+    "features/tabbed",
+    "features/bento",
+    "pricing/cards",
+    "cta/full-bleed",
+    "footer/comprehensive"
+  ]
+}

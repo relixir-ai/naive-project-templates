@@ -1,0 +1,20 @@
+{
+  "id": "enterprise-trust",
+  "label": "Enterprise Trust",
+  "bestFor": [
+    "fintech",
+    "operations",
+    "local services",
+    "conservative b2b"
+  ],
+  "motionVocabulary": "measured",
+  "sectionBias": [
+    "hero/stat-led",
+    "social-proof/logos",
+    "features/alternating-rows",
+    "how-it-works/timeline",
+    "pricing/table",
+    "cta/inline",
+    "footer/comprehensive"
+  ]
+}

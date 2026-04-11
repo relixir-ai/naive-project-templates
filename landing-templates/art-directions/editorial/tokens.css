@@ -1,0 +1,11 @@
+:root {
+  --color-bg: #FFFBF5;
+  --color-fg: #1C1917;
+  --color-surface: #FFF7ED;
+  --color-border: #E7E0D6;
+  --color-accent: #B45309;
+  --font-display: "Fraunces", serif;
+  --font-body: "Satoshi", sans-serif;
+  --radius-card: 24px;
+  --space-section-y: clamp(5rem, 9vw, 8rem);
+}

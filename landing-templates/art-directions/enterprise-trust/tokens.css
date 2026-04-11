@@ -1,0 +1,11 @@
+:root {
+  --color-bg: #FAFAFA;
+  --color-fg: #0A0A0A;
+  --color-surface: #FFFFFF;
+  --color-border: #E5E5E5;
+  --color-accent: #2563EB;
+  --font-display: "Satoshi", sans-serif;
+  --font-body: "Satoshi", sans-serif;
+  --radius-card: 8px;
+  --space-section-y: clamp(4rem, 7vw, 6rem);
+}

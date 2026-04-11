@@ -14,9 +14,8 @@ export const meta = {
   geometry: "list",
   industries: ["publishing", "developer-tools", "fintech", "b2b-saas", "operations"],
   artDirections: ["editorial", "product-demo", "enterprise-trust"],
-  requiresProofType: undefined,
   disallowedAdjacencies: ["features/bento", "features/asymmetric-grid"],
-  tokensRequired: ["color-fg", "color-bg", "color-border", "color-accent", "font-display", "font-body"],
+  tokensRequired: ["color-fg", "color-bg", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 

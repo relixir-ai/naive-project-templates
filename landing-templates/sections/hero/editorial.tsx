@@ -17,14 +17,16 @@ export const meta = {
   artDirections: ["editorial", "product-demo", "enterprise-trust"],
   requiresProofType: "logos",
   disallowedAdjacencies: ["hero/stat-led"],
-  tokensRequired: ["color-fg", "color-bg", "color-accent", "font-display", "font-body"],
+  tokensRequired: ["color-fg", "color-bg", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 
 interface HeroEditorialProps {
   eyebrow?: string;
+  /** First line of the oversized stacked display headline */
   headlineTop: string;
-  headlineBottom: string;
+  /** Second line rendered in accent color. Optional — omit for single-line headlines. */
+  headlineBottom?: string;
   subhead: string;
   primaryCta: { text: string; href: string };
   secondaryCta?: { text: string; href: string };
@@ -66,16 +68,18 @@ export function HeroEditorial({
             >
               {headlineTop}
             </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-              className="font-heading text-8xl font-bold tracking-[-0.05em] text-[var(--color-accent)] sm:text-[10rem] sm:leading-none"
-              aria-hidden="true"
-            >
-              {headlineBottom}
-            </motion.h1>
+            {headlineBottom ? (
+              <motion.h1
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+                className="font-heading text-8xl font-bold tracking-[-0.05em] text-[var(--color-accent)] sm:text-[10rem] sm:leading-none"
+                aria-hidden="true"
+              >
+                {headlineBottom}
+              </motion.h1>
+            ) : null}
           </div>
 
           {/* Thin horizontal rule */}

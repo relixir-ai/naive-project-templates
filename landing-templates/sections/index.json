@@ -34,7 +34,7 @@
         "color-surface",
         "color-fg",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "medium"
@@ -73,7 +73,7 @@
         "color-bg",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "small"
@@ -113,7 +113,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -152,7 +152,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -190,7 +190,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -230,7 +230,7 @@
         "color-bg",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -269,7 +269,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -307,7 +307,7 @@
         "color-bg",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "medium"
@@ -350,7 +350,7 @@
       "family": "hero",
       "variant": "editorial",
       "filePath": "hero/editorial.tsx",
-      "purpose": "Long-form value proposition with secondary CTA and editorial pacing",
+      "purpose": "Magazine-cover editorial hero with oversized stacked display type and offset body column",
       "tone": [
         "editorial",
         "confident",
@@ -377,7 +377,7 @@
         "color-fg",
         "color-bg",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -415,7 +415,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -453,7 +453,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -492,7 +492,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "medium"
@@ -531,7 +531,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "medium"
@@ -570,7 +570,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -609,7 +609,7 @@
         "color-surface",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "large"
@@ -682,7 +682,7 @@
         "color-bg",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "medium"
@@ -720,7 +720,7 @@
         "color-bg",
         "color-border",
         "color-accent",
-        "font-display",
+        "font-heading",
         "font-body"
       ],
       "estimatedHeight": "small"

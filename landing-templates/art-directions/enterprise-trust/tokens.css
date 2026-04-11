@@ -1,11 +1,43 @@
 :root {
-  --color-bg: #FAFAFA;
   --color-fg: #0A0A0A;
-  --color-surface: #FFFFFF;
-  --color-border: #E5E5E5;
+  --color-bg: #FAFAFA;
   --color-accent: #2563EB;
   --font-display: "Satoshi", sans-serif;
+  --font-heading: "Satoshi", sans-serif;
   --font-body: "Satoshi", sans-serif;
+
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F4F4F5;
+  --color-panel-solid: #FFFFFF;
+
+  --color-muted: #71717A;
+  --color-subtle: #A1A1AA;
+
+  --color-accent-soft: rgba(37, 99, 235, 0.06);
+  --color-accent-strong: #1D4ED8;
+  --color-accent-foreground: #FFFFFF;
+
+  --color-border: #E4E4E7;
+  --color-border-subtle: #F4F4F5;
+  --line-opacity: 0.1;
+  --grid-opacity: 0.04;
+  --texture-opacity: 0.02;
+  --texture-blend: overlay;
+
+  --shadow-color: 220 20% 10%;
+  --shadow-1: 0 1px 2px -1px hsl(var(--shadow-color) / 0.08);
+  --shadow-2: 0 3px 6px -2px hsl(var(--shadow-color) / 0.1);
+  --shadow-3: 0 8px 16px -4px hsl(var(--shadow-color) / 0.12);
+  --shadow-inset: inset 0 1px 2px hsl(var(--shadow-color) / 0.08);
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
   --radius-card: 8px;
-  --space-section-y: clamp(4rem, 7vw, 6rem);
+
+  --duration-fast: 100ms;
+  --duration-base: 180ms;
+  --duration-slow: 350ms;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --parallax-strength: 0.5;
 }

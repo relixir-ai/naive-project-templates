@@ -12,7 +12,7 @@ export const meta = {
   industries: ["fintech", "operations", "b2b-saas", "publishing"],
   artDirections: ["editorial", "enterprise-trust", "product-demo"],
   disallowedAdjacencies: ["features/bento", "how-it-works/numbered-steps"],
-  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-display", "font-body"],
+  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 

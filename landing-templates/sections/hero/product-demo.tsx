@@ -17,7 +17,7 @@ export const meta = {
   artDirections: ["product-demo", "enterprise-trust"],
   requiresProofType: "stats",
   disallowedAdjacencies: ["social-proof/pull-quote"],
-  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-display", "font-body"],
+  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 

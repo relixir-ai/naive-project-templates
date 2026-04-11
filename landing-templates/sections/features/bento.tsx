@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "@/lib/motion";
 import { Container } from "../shared/primitives/Container";
 import { Section } from "../shared/primitives/Section";
@@ -13,7 +15,7 @@ export const meta = {
   industries: ["developer-tools", "ai-saas", "operations", "marketplaces"],
   artDirections: ["editorial", "product-demo", "enterprise-trust"],
   disallowedAdjacencies: ["features/asymmetric-grid"],
-  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-display", "font-body"],
+  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 

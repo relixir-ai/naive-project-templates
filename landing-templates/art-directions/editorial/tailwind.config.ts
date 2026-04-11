@@ -11,7 +11,7 @@ const config: Config = {
         accent: "var(--color-accent)",
       },
       fontFamily: {
-        heading: ["var(--font-display)", "serif"],
+        heading: ["var(--font-heading)", "serif"],
         body: ["var(--font-body)", "sans-serif"],
       },
     },

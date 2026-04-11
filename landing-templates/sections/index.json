@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-11T16:02:25.970Z",
+  "generatedAt": "2026-04-11T20:00:00.000Z",
   "variants": [
     {
       "id": "cta/full-bleed",
@@ -137,12 +137,12 @@
       "family": "hero",
       "variant": "product-demo",
       "filePath": "hero/product-demo.tsx",
-      "purpose": "Product-forward hero with live-surface panel and proof bar",
+      "purpose": "Product-forward hero with ambient surface panel and single CTA",
       "density": "high",
       "geometry": "split",
       "industries": ["developer-tools", "ai-saas", "operations", "open-source"],
       "artDirections": ["product-demo", "enterprise-trust"],
-      "requiresProofType": "stats",
+      "requiresProofType": null,
       "disallowedAdjacencies": ["social-proof/pull-quote"]
     },
     {
@@ -235,6 +235,19 @@
       "artDirections": ["editorial", "enterprise-trust"],
       "requiresProofType": null,
       "disallowedAdjacencies": ["hero/product-demo", "cta/full-bleed"]
+    },
+    {
+      "id": "social-proof/tags",
+      "family": "social-proof",
+      "variant": "tags",
+      "filePath": "social-proof/tags.tsx",
+      "purpose": "Horizontal tag strip showing integrations, categories, or tech stack — no logo assets required",
+      "density": "low",
+      "geometry": "list",
+      "industries": ["developer-tools", "ai-saas", "b2b-saas", "operations", "fintech"],
+      "artDirections": ["product-demo", "editorial", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["social-proof/logos"]
     },
     {
       "id": "social-proof/stats",

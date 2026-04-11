@@ -42,3 +42,13 @@
   --parallax-strength: 0.5;
   --space-section-y: 5.5rem;
 }
+
+/* ─── TraceLine animation keyframes ─── */
+@keyframes trace-ltr {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+@keyframes trace-rtl {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}

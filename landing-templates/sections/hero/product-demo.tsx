@@ -25,6 +25,11 @@ export const meta = {
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 
+type HeroProductDemoMedia =
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "ui-mock"; caption?: string }
+  | { type: "ambient"; caption?: string };
+
 interface HeroProductDemoProps {
   eyebrow?: string;
   headline: string;
@@ -32,6 +37,12 @@ interface HeroProductDemoProps {
   primaryCta: { text: string; href: string };
   secondaryCta?: { text: string; href: string };
   proofLine?: string;
+  /**
+   * Right-panel content. Defaults to `{ type: "ui-mock" }` so the panel is
+   * never empty. Pass `{ type: "image", src, alt }` for real artwork, or
+   * `{ type: "ambient" }` to explicitly opt in to the atmospheric-only look.
+   */
+  media?: HeroProductDemoMedia;
 }
 
 export function HeroProductDemo({
@@ -41,6 +52,7 @@ export function HeroProductDemo({
   primaryCta,
   secondaryCta,
   proofLine,
+  media = { type: "ui-mock" },
 }: HeroProductDemoProps) {
   return (
     <Section className="relative overflow-hidden bg-[var(--color-bg)] text-[var(--color-fg)]">
@@ -110,29 +122,88 @@ export function HeroProductDemo({
                   "radial-gradient(circle, rgba(125, 232, 255, 0.14) 0%, rgba(125, 232, 255, 0.02) 50%, transparent 72%)",
               }}
             />
-            <div className="relative min-h-[420px] overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-panel-solid)] shadow-[var(--shadow-3)]">
+            <div
+              data-placeholder={media.type !== "image" ? "true" : undefined}
+              className="relative min-h-[420px] overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-panel-solid)] shadow-[var(--shadow-3)]"
+            >
               <GlowEdge edge="top" />
               <GridOverlay size={28} />
               <NoiseOverlay blend="screen" opacity={0.02} />
 
-              {/* Accent glow center */}
-              <div
-                aria-hidden
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                <div
-                  className="h-48 w-48 rounded-full blur-[80px]"
-                  style={{ background: "var(--color-accent-soft)" }}
-                />
-              </div>
+              {media.type === "image" ? (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  {media.caption ? (
+                    <figcaption className="absolute bottom-3 left-3 rounded bg-black/60 px-2 py-1 text-[10px] uppercase tracking-wider text-white">
+                      {media.caption}
+                    </figcaption>
+                  ) : null}
+                </>
+              ) : media.type === "ambient" ? (
+                <>
+                  {/* Accent glow center */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <div
+                      className="h-48 w-48 rounded-full blur-[80px]"
+                      style={{ background: "var(--color-accent-soft)" }}
+                    />
+                  </div>
 
-              {/* Horizontal trace lines */}
-              <div className="absolute inset-x-0 top-[38%] z-10 px-8">
-                <TraceLine duration={3.1} delay={0.2} />
-              </div>
-              <div className="absolute inset-x-0 top-[58%] z-10 px-8">
-                <TraceLine duration={4.2} delay={1.1} />
-              </div>
+                  {/* Horizontal trace lines */}
+                  <div className="absolute inset-x-0 top-[38%] z-10 px-8">
+                    <TraceLine duration={3.1} delay={0.2} />
+                  </div>
+                  <div className="absolute inset-x-0 top-[58%] z-10 px-8">
+                    <TraceLine duration={4.2} delay={1.1} />
+                  </div>
+                  {media.caption ? (
+                    <figcaption
+                      data-placeholder="true"
+                      className="absolute bottom-3 left-3 rounded bg-black/60 px-2 py-1 text-[10px] uppercase tracking-wider text-white"
+                    >
+                      {media.caption}
+                    </figcaption>
+                  ) : null}
+                </>
+              ) : (
+                <>
+                  {/* ui-mock: abstract bars and accent shapes. No fake numbers or text. */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <div
+                      className="h-40 w-40 rounded-full blur-[72px]"
+                      style={{ background: "var(--color-accent-soft)" }}
+                    />
+                  </div>
+                  <div className="absolute inset-x-0 top-10 z-10 space-y-3 px-8">
+                    <div className="h-2 w-1/3 rounded-full bg-[var(--color-border)]" />
+                    <div className="h-2 w-1/2 rounded-full bg-[var(--color-border)]" />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-10 z-10 space-y-3 px-8">
+                    <div className="h-2 w-2/3 rounded-full bg-[var(--color-border)]" />
+                    <div className="h-2 w-1/4 rounded-full bg-[var(--color-accent)] opacity-70" />
+                  </div>
+                  <div className="absolute inset-x-0 top-[46%] z-10 px-8">
+                    <TraceLine duration={3.1} delay={0.2} />
+                  </div>
+                  <figcaption
+                    data-placeholder="true"
+                    className="absolute bottom-3 left-3 rounded bg-black/60 px-2 py-1 text-[10px] uppercase tracking-wider text-white"
+                  >
+                    {media.caption ?? "REPLACE: product UI mock"}
+                  </figcaption>
+                </>
+              )}
             </div>
           </motion.div>
         </div>

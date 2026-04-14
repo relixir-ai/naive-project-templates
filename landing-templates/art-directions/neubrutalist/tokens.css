@@ -1,0 +1,113 @@
+:root {
+  /* Core colors - high contrast, bold */
+  --color-fg: #000000;
+  --color-bg: #FFFFFF;
+  --color-accent: #FFDD00;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Surface hierarchy - minimal, flat */
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F5F5F5;
+  --color-panel-solid: #FFFFFF;
+
+  /* Text */
+  --color-muted: #333333;
+  --color-subtle: #666666;
+
+  /* Accent range - bold primaries */
+  --color-accent-soft: rgba(255, 221, 0, 0.15);
+  --color-accent-strong: #E6C700;
+  --color-accent-foreground: #000000;
+
+  /* Border - THICK, black */
+  --color-border: #000000;
+  --color-border-subtle: #000000;
+  --line-opacity: 1;
+  --grid-opacity: 0;
+  --texture-opacity: 0;
+  --texture-blend: normal;
+
+  /* Shadows - OFFSET, solid black */
+  --shadow-color: 0 0% 0%;
+  --shadow-1: 4px 4px 0 0 #000;
+  --shadow-2: 6px 6px 0 0 #000;
+  --shadow-3: 8px 8px 0 0 #000;
+  --shadow-inset: inset 0 2px 0 #000;
+
+  /* Radius scale - NONE or very minimal */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-card: 0;
+
+  /* Motion - snappy, no spring */
+  --duration-fast: 80ms;
+  --duration-base: 120ms;
+  --duration-slow: 200ms;
+  --ease-spring: cubic-bezier(0.2, 0, 0, 1);
+  --parallax-strength: 0;
+  --space-section-y: 5rem;
+
+  /* Neubrutalist utility colors */
+  --nb-yellow: #FFDD00;
+  --nb-pink: #FF6B9D;
+  --nb-blue: #00D4FF;
+  --nb-green: #00FF94;
+  --nb-orange: #FF8C42;
+  --nb-purple: #9B5DE5;
+}
+
+/* Neubrutalist button utilities */
+.nb-button {
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 0 #000;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.nb-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 #000;
+}
+
+.nb-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Neubrutalist card utilities */
+.nb-card {
+  border: 2px solid #000;
+  box-shadow: 6px 6px 0 0 #000;
+}
+
+.nb-card:hover {
+  box-shadow: 8px 8px 0 0 #000;
+}
+
+/* Offset underline for headings */
+.nb-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nb-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 4px;
+  background: var(--nb-yellow);
+}
+
+/* ─── TraceLine animation keyframes ─── */
+@keyframes trace-ltr {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+@keyframes trace-rtl {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}

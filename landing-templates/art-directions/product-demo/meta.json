@@ -1,0 +1,17 @@
+{
+  "id": "product-demo",
+  "label": "Product Demo",
+  "aesthetic": "The feeling of watching something work in real time. Precision, control, surfaces that look like they're actually running. Dark, technical, specific.",
+  "motionVocabulary": "crisp",
+  "sectionSuggestions": [
+    "hero/product-demo",
+    "social-proof/tags",
+    "features/tabbed",
+    "features/list",
+    "how-it-works/numbered-steps",
+    "pricing/cards",
+    "cta/full-bleed",
+    "footer/comprehensive"
+  ],
+  "sectionSuggestionsNote": "Default path for product-demo. Stay close to this unless Phase 1 gives a specific reason to deviate. Prefer split, list, or instrument-panel layouts over generic feature card grids."
+}

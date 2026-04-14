@@ -1,0 +1,186 @@
+{
+  "id": "hero/custom",
+  "goal": "Allow a brand-specific hero without forcing the agent to invent the entire structure from scratch.",
+  "costModel": {
+    "defaultPath": "Use this manifest to choose mode, layout, and content shape before writing any hero props.",
+    "latencyRule": "If no real visual or proof exists, use single-column instead of iterating toward a split hero.",
+    "avoid": [
+      "multiple speculative hero rewrites before picking a mode",
+      "large decorative placeholder panels above the fold",
+      "trying several hero structures by rebuilding after each one"
+    ]
+  },
+  "schema": {
+    "mode": {
+      "required": true,
+      "enum": [
+        "type-led",
+        "image-led",
+        "proof-led",
+        "single-column manifesto",
+        "split narrative"
+      ]
+    },
+    "layout": {
+      "required": true,
+      "enum": ["auto", "single-column", "split"]
+    },
+    "trustLevel": {
+      "required": true,
+      "enum": ["low", "medium", "high"]
+    },
+    "energyLevel": {
+      "required": true,
+      "enum": ["restrained", "assertive", "loud"]
+    },
+    "visualAnchor": {
+      "required": true,
+      "enum": [
+        "typography",
+        "image",
+        "proof-card",
+        "structured-list",
+        "product-system-frame"
+      ]
+    },
+    "ctaStyle": {
+      "required": true,
+      "enum": [
+        "direct conversion",
+        "exploratory",
+        "credibility-first"
+      ]
+    },
+    "motionProfile": {
+      "required": true,
+      "enum": [
+        "minimal-fade",
+        "staggered-entrance",
+        "trace-draw",
+        "media-reveal",
+        "proof-rise"
+      ]
+    },
+    "paletteFamily": {
+      "required": true,
+      "enum": [
+        "editorial-cream",
+        "midnight-luxe",
+        "trust-light",
+        "kinetic-dark"
+      ]
+    }
+  },
+  "layoutRules": {
+    "splitAllowedWhen": [
+      "there is a real image",
+      "there is a marked placeholder image block",
+      "there is a proof card or structured proof list with a clear job"
+    ],
+    "collapseToSingleColumnWhen": [
+      "the right side would otherwise be decorative only",
+      "the support content is too weak to justify a second column",
+      "the brand is carried mainly by typography and copy"
+    ]
+  },
+  "contentLimits": {
+    "headlineMaxWords": 8,
+    "subheadMaxWords": 20,
+    "supportingPointsMax": 4,
+    "asideProofMax": 3,
+    "ctaCount": {
+      "primary": 1,
+      "secondaryOptional": 1
+    }
+  },
+  "motionGuardrails": {
+    "rule": "Motion should reinforce the chosen hero mode, not compensate for weak composition.",
+    "avoid": [
+      "floating decorative blobs",
+      "constant looped motion above the fold",
+      "inventing a custom animation system per hero"
+    ],
+    "prefer": [
+      "one clear motion profile tied to the hero mode",
+      "reveals that improve hierarchy and focus",
+      "subtle movement over novelty for trust-sensitive pages"
+    ],
+    "recommendedByMode": {
+      "type-led": ["staggered-entrance", "trace-draw", "minimal-fade"],
+      "image-led": ["media-reveal", "staggered-entrance"],
+      "proof-led": ["proof-rise", "trace-draw"],
+      "single-column manifesto": ["minimal-fade", "staggered-entrance"],
+      "split narrative": ["staggered-entrance", "proof-rise", "media-reveal"]
+    }
+  },
+  "colorGuardrails": {
+    "rule": "Use one dominant background family, one accent, and one support tone.",
+    "avoid": [
+      "muddy purple-pink gradients unless explicitly justified",
+      "color intensity that is louder than the offer",
+      "nightclub-poster energy for trust-sensitive or booking-sensitive offers"
+    ],
+    "prefer": [
+      "controlled contrast over neon contrast",
+      "brand-fit color discipline over maximal palette usage"
+    ],
+    "paletteFamilies": {
+      "editorial-cream": {
+        "bestFor": ["editorial", "single-column manifesto", "type-led"],
+        "shape": "warm light base + dark text + restrained warm accent",
+        "notes": [
+          "Use cream, parchment, blush-beige, oxblood, espresso, muted rose",
+          "Best when typography does the heavy lifting",
+          "Avoid neon accents"
+        ]
+      },
+      "midnight-luxe": {
+        "bestFor": ["image-led", "split narrative", "premium nightlife", "event experiences"],
+        "shape": "dark neutral base + one rich accent + one softened highlight",
+        "notes": [
+          "Use black-plum, deep brown, aubergine, oxblood, muted coral, warm ivory",
+          "Keep gradients controlled and low-noise",
+          "Do not use full purple-pink washes without strong justification"
+        ]
+      },
+      "trust-light": {
+        "bestFor": ["proof-led", "enterprise-trust", "booking-oriented offers"],
+        "shape": "light neutral base + calm text + disciplined accent",
+        "notes": [
+          "Use ivory, stone, slate, ink, muted red, muted blue, copper",
+          "Prioritize clarity over atmosphere",
+          "If trust matters, this should beat louder palette families by default"
+        ]
+      },
+      "kinetic-dark": {
+        "bestFor": ["product-demo", "assertive offers", "high-energy brands with real proof"],
+        "shape": "dark base + crisp contrast + tightly limited bright accent",
+        "notes": [
+          "Use charcoal, deep navy, electric but controlled accent, and one cool support tone",
+          "Only use when the offer can support high energy visually",
+          "Avoid muddy blends and more than one dominant bright accent"
+        ]
+      }
+    }
+  },
+  "rewriteTriggers": [
+    "generic startup hero with swapped nouns",
+    "subhead or bullets repeat the headline",
+    "second column has no clear job",
+    "giant placeholder media block with no payoff",
+    "loud gradient treatment overpowering the copy",
+    "support content removable without changing the impression"
+  ],
+  "recommendedByArtDirection": {
+    "editorial": ["type-led", "single-column manifesto"],
+    "product-demo": ["image-led", "proof-led", "split narrative"],
+    "enterprise-trust": ["proof-led", "split narrative"],
+    "neubrutalist": ["type-led", "split narrative"]
+  },
+  "recommendedPaletteByArtDirection": {
+    "editorial": ["editorial-cream", "trust-light"],
+    "product-demo": ["kinetic-dark", "midnight-luxe"],
+    "enterprise-trust": ["trust-light", "editorial-cream"],
+    "neubrutalist": ["kinetic-dark", "editorial-cream"]
+  }
+}

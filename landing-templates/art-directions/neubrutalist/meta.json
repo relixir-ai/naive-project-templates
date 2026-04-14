@@ -1,0 +1,17 @@
+{
+  "id": "neubrutalist",
+  "label": "Neubrutalist",
+  "aesthetic": "Bold, raw, unapologetic. Thick borders, offset shadows, primary colors clashing with purpose. Maximum contrast, zero pretense. For brands that want to stand out, not blend in.",
+  "motionVocabulary": "snappy",
+  "sectionSuggestions": [
+    "hero/editorial",
+    "social-proof/logos",
+    "features/list",
+    "stats/count-up",
+    "testimonials/wall-of-love",
+    "faq/accordion",
+    "cta/full-bleed",
+    "footer/minimal"
+  ],
+  "sectionSuggestionsNote": "Neubrutalism works best with simple, direct layouts. Avoid heavy gradients and glass effects. Prefer solid colors, thick borders, and offset shadows. Keep animations minimal and snappy."
+}

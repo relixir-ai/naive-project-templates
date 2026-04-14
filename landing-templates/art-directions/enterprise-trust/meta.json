@@ -1,0 +1,16 @@
+{
+  "id": "enterprise-trust",
+  "label": "Enterprise Trust",
+  "aesthetic": "Clean authority. The feeling of a well-run institution. Light surfaces, measured motion, nothing decorative. Confidence without flash.",
+  "motionVocabulary": "measured",
+  "sectionSuggestions": [
+    "hero/stat-led",
+    "social-proof/tags",
+    "features/alternating-rows",
+    "how-it-works/timeline",
+    "pricing/table",
+    "cta/inline",
+    "footer/comprehensive"
+  ],
+  "sectionSuggestionsNote": "Default path for enterprise-trust. Stay close to this unless Phase 1 gives a specific reason to deviate. Prefer evidence-first split layouts over decorative card grids."
+}

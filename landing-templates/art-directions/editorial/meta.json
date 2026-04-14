@@ -1,0 +1,15 @@
+{
+  "id": "editorial",
+  "label": "Editorial",
+  "aesthetic": "Warmth and considered craft. The feeling of a well-designed book or magazine. Type as the primary design element. Slow, deliberate, human.",
+  "motionVocabulary": "restrained",
+  "sectionSuggestions": [
+    "hero/editorial",
+    "social-proof/pull-quote",
+    "features/list",
+    "features/alternating-rows",
+    "cta/inline",
+    "footer/minimal"
+  ],
+  "sectionSuggestionsNote": "Default path for editorial. Stay close to this unless Phase 1 gives a specific reason to deviate. Prefer open or split layouts and avoid dashboard-like grids."
+}

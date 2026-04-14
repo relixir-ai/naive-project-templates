@@ -23,7 +23,11 @@ interface FeatureRow {
   title: string;
   description: string;
   bullets: string[];
-  panelLabel: string;
+  /** Text label for the evidence panel (used when no image) */
+  panelLabel?: string;
+  /** Image URL — when provided, renders image instead of text panel */
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 interface FeaturesAlternatingRowsProps {
@@ -84,32 +88,42 @@ export function FeaturesAlternatingRows({
                       ))}
                     </ul>
                   </div>
-                  <div className="relative overflow-hidden rounded-[calc(var(--radius-card)-0.5rem)] border border-[var(--color-border-subtle)] bg-[var(--color-panel-solid)] p-5">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between gap-4 border-b border-[var(--color-border-subtle)] pb-4">
-                        <div>
-                          <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-subtle)]">
-                            Evidence block {String(index + 1).padStart(2, "0")}
-                          </p>
-                          <p className="mt-2 text-sm font-medium text-[var(--color-fg)]">{row.panelLabel}</p>
-                        </div>
-                        <span className="rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
-                          Verified
-                        </span>
-                      </div>
-                      <div className="space-y-3">
-                        {row.bullets.slice(0, 3).map((bullet) => (
-                          <div
-                            key={bullet}
-                            className="flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-2)_72%,white)] px-4 py-3"
-                          >
-                            <span className="text-sm text-[var(--color-muted)]">{bullet}</span>
-                            <span className="mt-1 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                  {row.imageSrc ? (
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(var(--radius-card)-0.5rem)] border border-[var(--color-border-subtle)]">
+                      <img
+                        src={row.imageSrc}
+                        alt={row.imageAlt ?? row.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative overflow-hidden rounded-[calc(var(--radius-card)-0.5rem)] border border-[var(--color-border-subtle)] bg-[var(--color-panel-solid)] p-5">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between gap-4 border-b border-[var(--color-border-subtle)] pb-4">
+                          <div>
+                            <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-subtle)]">
+                              Evidence block {String(index + 1).padStart(2, "0")}
+                            </p>
+                            <p className="mt-2 text-sm font-medium text-[var(--color-fg)]">{row.panelLabel}</p>
                           </div>
-                        ))}
+                          <span className="rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
+                            Verified
+                          </span>
+                        </div>
+                        <div className="space-y-3">
+                          {row.bullets.slice(0, 3).map((bullet) => (
+                            <div
+                              key={bullet}
+                              className="flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-2)_72%,white)] px-4 py-3"
+                            >
+                              <span className="text-sm text-[var(--color-muted)]">{bullet}</span>
+                              <span className="mt-1 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </article>
               );
             })}

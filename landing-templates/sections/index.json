@@ -133,6 +133,19 @@
       "disallowedAdjacencies": []
     },
     {
+      "id": "hero/custom",
+      "family": "hero",
+      "variant": "custom",
+      "filePath": "hero/custom.tsx",
+      "purpose": "Loose hero scaffold for brand-shaped compositions when preset heroes feel too formulaic",
+      "density": "medium",
+      "geometry": "split",
+      "industries": ["publishing", "developer-tools", "fintech", "b2b-saas", "consumer", "wellness"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": []
+    },
+    {
       "id": "hero/editorial",
       "family": "hero",
       "variant": "editorial",

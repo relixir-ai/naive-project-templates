@@ -1,21 +1,22 @@
 "use client";
-import type { ReactNode } from "react";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "@/lib/motion";
+
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "../shared/lib/motion";
 import { Container } from "../shared/primitives/Container";
 import { Section } from "../shared/primitives/Section";
+import { TraceLine } from "../shared/primitives/TraceLine";
 import type { SectionMeta } from "../shared/tokens";
 
 export const meta = {
   family: "testimonials",
   variant: "carousel",
-  purpose: "Classic testimonial carousel with navigation dots and autoplay",
-  tone: ["professional", "focused", "narrative"],
+  purpose: "Refined testimonial carousel with elegant transitions and trace line",
+  tone: ["professional", "trustworthy", "calm"],
   density: "medium",
   geometry: "split",
-  industries: ["b2b-saas", "services", "fintech", "operations"],
-  artDirections: ["enterprise-trust", "editorial"],
-  disallowedAdjacencies: ["testimonials/wall-of-love", "social-proof/pull-quote"],
+  industries: ["b2b-saas", "fintech", "enterprise", "developer-tools"],
+  artDirections: ["enterprise-trust", "product-demo", "editorial"],
+  disallowedAdjacencies: ["testimonials/wall-of-love"],
   tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "medium",
 } as const satisfies SectionMeta;
@@ -23,10 +24,9 @@ export const meta = {
 interface Testimonial {
   quote: string;
   author: string;
-  role?: string;
+  role: string;
   company?: string;
   avatar?: string;
-  logo?: string;
 }
 
 interface TestimonialCarouselProps {
@@ -34,115 +34,73 @@ interface TestimonialCarouselProps {
   eyebrow?: string;
   heading?: string;
   testimonials: Testimonial[];
-  /** Autoplay interval in ms, 0 to disable */
   autoplayInterval?: number;
 }
 
 export function TestimonialCarousel({
   id,
-  eyebrow,
-  heading = "What our customers say",
+  eyebrow = "Real voices",
+  heading = "Don't take our word for it",
   testimonials,
   autoplayInterval = 5000,
 }: TestimonialCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const next = useCallback(() => {
-    setDirection(1);
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
 
-  const prev = useCallback(() => {
-    setDirection(-1);
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, [testimonials.length]);
-
-  const goTo = useCallback((index: number) => {
-    setDirection(index > activeIndex ? 1 : -1);
-    setActiveIndex(index);
-  }, [activeIndex]);
-
-  // Autoplay
   useEffect(() => {
-    if (!isAutoPlaying || autoplayInterval === 0 || testimonials.length <= 1) {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-      return;
-    }
-
-    timerRef.current = setInterval(next, autoplayInterval);
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, [next, isAutoPlaying, autoplayInterval, testimonials.length]);
-
-  // Pause autoplay on hover
-  const handleMouseEnter = () => setIsAutoPlaying(false);
-  const handleMouseLeave = () => setIsAutoPlaying(true);
-
-  if (testimonials.length === 0) return null;
+    if (autoplayInterval === 0 || testimonials.length <= 1) return;
+    const timer = setInterval(next, autoplayInterval);
+    return () => clearInterval(timer);
+  }, [next, autoplayInterval, testimonials.length]);
 
   return (
-    <Section id={id} className="bg-[var(--color-bg)] py-24">
+    <Section id={id} className="bg-[var(--color-bg)] relative py-24">
+      <TraceLine />
+      
       <Container>
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto">
           {eyebrow && (
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-accent)] mb-3">
+            <p className="uppercase tracking-[0.125em] text-xs text-[var(--color-accent)] mb-3 text-center">
               {eyebrow}
             </p>
           )}
-          <h2 className="font-heading text-5xl font-semibold tracking-[-0.04em] mb-12">
+
+          <h2 className="font-heading text-5xl sm:text-6xl font-semibold tracking-[-0.04em] text-center mb-16">
             {heading}
           </h2>
 
-          <div 
-            className="relative h-[380px] flex items-center justify-center"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <AnimatePresence mode="wait" custom={direction}>
+          <div className="relative h-[380px] flex items-center">
+            <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                custom={direction}
-                initial={{ opacity: 0, x: direction * 60 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -60 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 flex flex-col items-center justify-center text-center px-8"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -40 }}
+                transition={{ duration: 0.8, ease: [0.23, 1.0, 0.32, 1.0] }}
+                className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
               >
-                <div className="max-w-2xl">
-                  <p className="text-2xl leading-relaxed text-[var(--color-fg)] mb-10 font-light">
-                    “{testimonials[activeIndex].quote}”
-                  </p>
+                <blockquote className="text-2xl sm:text-3xl leading-tight font-light text-balance max-w-2xl text-[var(--color-fg)] mb-12">
+                  “{testimonials[activeIndex].quote}”
+                </blockquote>
 
-                  <div className="flex items-center justify-center gap-4">
-                    {testimonials[activeIndex].avatar && (
+                <div className="flex items-center gap-4">
+                  {testimonials[activeIndex].avatar && (
+                    <div className="w-11 h-11 rounded-2xl overflow-hidden ring-1 ring-[var(--color-border)]">
                       <img
                         src={testimonials[activeIndex].avatar}
                         alt={testimonials[activeIndex].author}
-                        className="w-12 h-12 rounded-full object-cover border border-[var(--color-border)]"
+                        className="w-full h-full object-cover"
                       />
-                    )}
-                    <div>
-                      <p className="font-semibold text-[var(--color-fg)]">
-                        {testimonials[activeIndex].author}
-                      </p>
-                      {(testimonials[activeIndex].role || testimonials[activeIndex].company) && (
-                        <p className="text-sm text-[var(--color-muted)]">
-                          {testimonials[activeIndex].role}
-                          {testimonials[activeIndex].role && testimonials[activeIndex].company && " • "}
-                          {testimonials[activeIndex].company}
-                        </p>
-                      )}
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-semibold">{testimonials[activeIndex].author}</div>
+                    <div className="text-sm text-[var(--color-muted)]">
+                      {testimonials[activeIndex].role}
+                      {testimonials[activeIndex].company && ` • ${testimonials[activeIndex].company}`}
                     </div>
                   </div>
                 </div>
@@ -150,19 +108,15 @@ export function TestimonialCarousel({
             </AnimatePresence>
           </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-3 mt-10">
-            {testimonials.map((_, index) => (
-              <button
-                type="button"
-                key={index}
-                onClick={() => goTo(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex 
-                    ? "bg-[var(--color-accent)] scale-125" 
-                    : "bg-[var(--color-border)] hover:bg-[var(--color-muted)]"
+          <div className="flex justify-center gap-2 mt-10">
+            {testimonials.map((_, idx) => (
+              <div
+                key={idx}
+                className={`h-1 rounded-full transition-all duration-700 ${
+                  idx === activeIndex 
+                    ? "w-8 bg-[var(--color-accent)]" 
+                    : "w-3 bg-[var(--color-border)]"
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>

@@ -18,7 +18,7 @@ export const meta = {
   industries: ["publishing", "developer-tools", "fintech", "b2b-saas", "consumer", "wellness"],
   artDirections: ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
   disallowedAdjacencies: [],
-  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-accent", "color-border", "font-heading", "font-body"],
+  tokensRequired: ["color-fg", "color-bg", "color-surface", "color-accent", "color-border", "color-subtle", "font-heading", "font-body"],
   estimatedHeight: "large",
 } as const satisfies SectionMeta;
 
@@ -31,6 +31,13 @@ interface HeroCustomProps {
   primaryCta: { text: string; href: string };
   secondaryCta?: { text: string; href: string };
   supportingPoints?: string[];
+  layout?: "auto" | "single-column" | "split";
+  media?: {
+    type: "image" | "placeholder";
+    src?: string;
+    alt?: string;
+    caption?: string;
+  };
   aside?: {
     label?: string;
     title?: string;
@@ -48,13 +55,25 @@ export function HeroCustom({
   primaryCta,
   secondaryCta,
   supportingPoints = [],
+  layout = "auto",
+  media,
   aside,
 }: HeroCustomProps) {
+  const hasAside = Boolean(aside?.label || aside?.title || aside?.body || aside?.proof?.length);
+  const hasMedia = Boolean(media?.type);
+  const useSplit = layout === "split" || (layout === "auto" && (hasAside || hasMedia));
+
   return (
     <Section className="overflow-hidden bg-[var(--color-bg)] text-[var(--color-fg)]">
       <NoiseOverlay blend="multiply" opacity={0.018} />
       <Container className="relative z-10">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-end">
+        <div
+          className={
+            useSplit
+              ? "grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-end"
+              : "max-w-5xl"
+          }
+        >
           <div className="space-y-8">
             {eyebrow ? (
               <motion.p
@@ -121,7 +140,7 @@ export function HeroCustom({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.18 }}
-                className="grid gap-3 pt-2 text-sm text-[var(--color-subtle)] sm:grid-cols-2"
+                className={`grid gap-3 pt-2 text-sm text-[var(--color-subtle)] sm:grid-cols-2 ${useSplit ? "" : "max-w-3xl"}`}
               >
                 {supportingPoints.slice(0, 4).map((point) => (
                   <li key={point} className="flex items-start gap-3">
@@ -136,51 +155,79 @@ export function HeroCustom({
             ) : null}
           </div>
 
-          <motion.aside
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
-            className="relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-2)] lg:p-8"
-          >
-            <div className="space-y-5">
-              <div className="max-w-28">
-                <TraceLine delay={0.12} duration={3.4} />
-              </div>
-
-              {aside?.label ? (
-                <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--color-accent)]">
-                  {aside.label}
-                </p>
-              ) : null}
-
-              {aside?.title ? (
-                <h2 className="font-heading text-2xl font-semibold tracking-[-0.03em]">
-                  {aside.title}
-                </h2>
-              ) : null}
-
-              {aside?.body ? (
-                <p className="text-sm leading-7 text-[var(--color-muted)]">
-                  {aside.body}
-                </p>
-              ) : null}
-
-              {aside?.proof?.length ? (
-                <div className="grid gap-3 border-t border-[var(--color-border)] pt-5 text-sm">
-                  {aside.proof.slice(0, 3).map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
-                      />
-                      <span className="text-[var(--color-subtle)]">{item}</span>
-                    </div>
-                  ))}
+          {useSplit ? (
+            <motion.aside
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
+              className="relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-2)] lg:p-8"
+            >
+              <div className="space-y-5">
+                <div className="max-w-28">
+                  <TraceLine delay={0.12} duration={3.4} />
                 </div>
-              ) : null}
-            </div>
-          </motion.aside>
+
+                {media?.type === "image" && media.src ? (
+                  <figure className="space-y-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={media.src}
+                      alt={media.alt ?? ""}
+                      className="aspect-[4/3] w-full rounded-[calc(var(--radius-card)-0.5rem)] object-cover"
+                    />
+                    {media.caption ? (
+                      <figcaption className="text-xs uppercase tracking-[0.18em] text-[var(--color-subtle)]">
+                        {media.caption}
+                      </figcaption>
+                    ) : null}
+                  </figure>
+                ) : media?.type === "placeholder" ? (
+                  <figure
+                    data-placeholder="true"
+                    className="space-y-3 rounded-[calc(var(--radius-card)-0.5rem)] border border-[var(--color-border)] bg-[var(--color-bg)]/60 p-4"
+                  >
+                    <div className="aspect-[4/3] rounded-[calc(var(--radius-card)-0.75rem)] bg-[var(--color-surface)]" />
+                    <figcaption className="text-xs uppercase tracking-[0.18em] text-[var(--color-subtle)]">
+                      {media.caption ?? "REPLACE: hero visual"}
+                    </figcaption>
+                  </figure>
+                ) : null}
+
+                {aside?.label ? (
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                    {aside.label}
+                  </p>
+                ) : null}
+
+                {aside?.title ? (
+                  <h2 className="font-heading text-2xl font-semibold tracking-[-0.03em]">
+                    {aside.title}
+                  </h2>
+                ) : null}
+
+                {aside?.body ? (
+                  <p className="text-sm leading-7 text-[var(--color-muted)]">
+                    {aside.body}
+                  </p>
+                ) : null}
+
+                {aside?.proof?.length ? (
+                  <div className="grid gap-3 border-t border-[var(--color-border)] pt-5 text-sm">
+                    {aside.proof.slice(0, 3).map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <span
+                          aria-hidden
+                          className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                        />
+                        <span className="text-[var(--color-subtle)]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </motion.aside>
+          ) : null}
         </div>
       </Container>
     </Section>

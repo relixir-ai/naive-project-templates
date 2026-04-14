@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "../shared/lib/motion";
+import { motion, AnimatePresence } from "@/lib/motion";
 import { Container } from "../shared/primitives/Container";
 import { Section } from "../shared/primitives/Section";
 import { TraceLine } from "../shared/primitives/TraceLine";

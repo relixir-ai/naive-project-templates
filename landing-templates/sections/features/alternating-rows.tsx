@@ -104,7 +104,9 @@ export function FeaturesAlternatingRows({
                             <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-subtle)]">
                               Evidence block {String(index + 1).padStart(2, "0")}
                             </p>
-                            <p className="mt-2 text-sm font-medium text-[var(--color-fg)]">{row.panelLabel}</p>
+                            {row.panelLabel && (
+                              <p className="mt-2 text-sm font-medium text-[var(--color-fg)]">{row.panelLabel}</p>
+                            )}
                           </div>
                           <span className="rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
                             Verified

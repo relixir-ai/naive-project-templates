@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-11T20:00:00.000Z",
+  "generatedAt": "2026-04-13T20:00:00.000Z",
   "variants": [
     {
       "id": "cta/full-bleed",
@@ -11,7 +11,7 @@
       "density": "medium",
       "geometry": "split",
       "industries": ["developer-tools", "fintech", "b2b-saas", "publishing"],
-      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
       "requiresProofType": null,
       "disallowedAdjacencies": ["cta/inline"]
     },
@@ -68,6 +68,19 @@
       "disallowedAdjacencies": ["features/asymmetric-grid"]
     },
     {
+      "id": "features/bento-animated",
+      "family": "features",
+      "variant": "bento-animated",
+      "filePath": "features/bento-animated.tsx",
+      "purpose": "Animated bento grid with Framer Motion stagger effects and optional 3D tilt",
+      "density": "high",
+      "geometry": "grid",
+      "industries": ["developer-tools", "ai-saas", "operations", "marketplaces"],
+      "artDirections": ["product-demo", "editorial"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["features/bento", "features/asymmetric-grid"]
+    },
+    {
       "id": "features/list",
       "family": "features",
       "variant": "list",
@@ -76,7 +89,7 @@
       "density": "medium",
       "geometry": "list",
       "industries": ["publishing", "developer-tools", "fintech", "b2b-saas", "operations"],
-      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
       "requiresProofType": null,
       "disallowedAdjacencies": ["features/asymmetric-grid"]
     },
@@ -115,7 +128,7 @@
       "density": "low",
       "geometry": "split",
       "industries": ["developer-tools", "fintech", "publishing", "services"],
-      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
       "requiresProofType": null,
       "disallowedAdjacencies": []
     },
@@ -128,7 +141,7 @@
       "density": "medium",
       "geometry": "open",
       "industries": ["publishing", "developer-tools", "fintech", "b2b-saas"],
-      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
       "requiresProofType": "logos",
       "disallowedAdjacencies": ["hero/stat-led"]
     },
@@ -211,6 +224,19 @@
       "disallowedAdjacencies": ["features/tabbed", "how-it-works/timeline"]
     },
     {
+      "id": "pricing/slider",
+      "family": "pricing",
+      "variant": "slider",
+      "filePath": "pricing/slider.tsx",
+      "purpose": "Interactive pricing with draggable slider for seat/volume-based pricing",
+      "density": "medium",
+      "geometry": "split",
+      "industries": ["ai-saas", "developer-tools", "b2b-saas", "operations"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["pricing/cards", "pricing/table"]
+    },
+    {
       "id": "social-proof/logos",
       "family": "social-proof",
       "variant": "logos",
@@ -219,7 +245,7 @@
       "density": "low",
       "geometry": "open",
       "industries": ["developer-tools", "fintech", "b2b-saas", "services"],
-      "artDirections": ["editorial", "product-demo", "enterprise-trust"],
+      "artDirections": ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
       "requiresProofType": "logos",
       "disallowedAdjacencies": ["social-proof/stats"]
     },
@@ -241,7 +267,7 @@
       "family": "social-proof",
       "variant": "tags",
       "filePath": "social-proof/tags.tsx",
-      "purpose": "Horizontal tag strip showing integrations, categories, or tech stack — no logo assets required",
+      "purpose": "Horizontal tag strip showing integrations, categories, or tech stack",
       "density": "low",
       "geometry": "list",
       "industries": ["developer-tools", "ai-saas", "b2b-saas", "operations", "fintech"],
@@ -261,6 +287,188 @@
       "artDirections": ["product-demo", "enterprise-trust"],
       "requiresProofType": null,
       "disallowedAdjacencies": ["hero/stat-led", "pricing/cards"]
+    },
+    {
+      "id": "testimonials/wall-of-love",
+      "family": "testimonials",
+      "variant": "wall-of-love",
+      "filePath": "testimonials/wall-of-love.tsx",
+      "purpose": "Masonry grid of diverse testimonial cards showing social proof density",
+      "density": "high",
+      "geometry": "grid",
+      "industries": ["ai-saas", "developer-tools", "b2b-saas", "marketplaces"],
+      "artDirections": ["product-demo", "editorial", "enterprise-trust", "neubrutalist"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["social-proof/pull-quote", "testimonials/carousel"]
+    },
+    {
+      "id": "testimonials/carousel",
+      "family": "testimonials",
+      "variant": "carousel",
+      "filePath": "testimonials/carousel.tsx",
+      "purpose": "Classic testimonial carousel with navigation dots and autoplay",
+      "density": "medium",
+      "geometry": "split",
+      "industries": ["b2b-saas", "services", "fintech", "operations"],
+      "artDirections": ["enterprise-trust", "editorial"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["testimonials/wall-of-love", "social-proof/pull-quote"]
+    },
+    {
+      "id": "comparison/feature-table",
+      "family": "comparison",
+      "variant": "feature-table",
+      "filePath": "comparison/feature-table.tsx",
+      "purpose": "Feature-by-feature comparison table with highlighted product column",
+      "density": "high",
+      "geometry": "grid",
+      "industries": ["developer-tools", "b2b-saas", "ai-saas", "operations"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["pricing/table", "comparison/cost-stacker"]
+    },
+    {
+      "id": "comparison/cost-stacker",
+      "family": "comparison",
+      "variant": "cost-stacker",
+      "filePath": "comparison/cost-stacker.tsx",
+      "purpose": "Visual comparison stacking competitor costs against your single price",
+      "density": "medium",
+      "geometry": "split",
+      "industries": ["developer-tools", "b2b-saas", "ai-saas", "operations", "fintech"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["pricing/cards", "comparison/feature-table"]
+    },
+    {
+      "id": "stats/count-up",
+      "family": "stats",
+      "variant": "count-up",
+      "filePath": "stats/count-up.tsx",
+      "purpose": "Large animated metrics that count up on scroll entry",
+      "density": "medium",
+      "geometry": "grid",
+      "industries": ["ai-saas", "fintech", "developer-tools", "b2b-saas", "operations"],
+      "artDirections": ["product-demo", "enterprise-trust", "neubrutalist"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["social-proof/stats", "hero/stat-led"]
+    },
+    {
+      "id": "stats/chart",
+      "family": "stats",
+      "variant": "chart",
+      "filePath": "stats/chart.tsx",
+      "purpose": "Stats section with simple animated bar or line chart visualization",
+      "density": "medium",
+      "geometry": "split",
+      "industries": ["fintech", "ai-saas", "operations", "b2b-saas"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["social-proof/stats", "stats/count-up"]
+    },
+    {
+      "id": "demo/browser-frame",
+      "family": "demo",
+      "variant": "browser-frame",
+      "filePath": "demo/browser-frame.tsx",
+      "purpose": "Product demo with browser chrome mockup and step-based navigation",
+      "density": "high",
+      "geometry": "split",
+      "industries": ["developer-tools", "ai-saas", "b2b-saas", "operations"],
+      "artDirections": ["product-demo"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["demo/screenshot-carousel", "hero/product-demo"]
+    },
+    {
+      "id": "demo/screenshot-carousel",
+      "family": "demo",
+      "variant": "screenshot-carousel",
+      "filePath": "demo/screenshot-carousel.tsx",
+      "purpose": "Annotated screenshot carousel with navigation dots and tooltips",
+      "density": "medium",
+      "geometry": "open",
+      "industries": ["developer-tools", "ai-saas", "b2b-saas", "operations", "marketplaces"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["demo/browser-frame"]
+    },
+    {
+      "id": "integrations/logo-grid",
+      "family": "integrations",
+      "variant": "logo-grid",
+      "filePath": "integrations/logo-grid.tsx",
+      "purpose": "Static grid of integration or partner logos",
+      "density": "medium",
+      "geometry": "grid",
+      "industries": ["developer-tools", "ai-saas", "b2b-saas", "operations", "fintech"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["social-proof/logos", "integrations/filterable"]
+    },
+    {
+      "id": "integrations/filterable",
+      "family": "integrations",
+      "variant": "filterable",
+      "filePath": "integrations/filterable.tsx",
+      "purpose": "Searchable and categorized integration grid",
+      "density": "high",
+      "geometry": "grid",
+      "industries": ["developer-tools", "ai-saas", "b2b-saas", "operations"],
+      "artDirections": ["product-demo", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["integrations/logo-grid"]
+    },
+    {
+      "id": "faq/accordion",
+      "family": "faq",
+      "variant": "accordion",
+      "filePath": "faq/accordion.tsx",
+      "purpose": "Expandable FAQ questions with smooth animations",
+      "density": "medium",
+      "geometry": "stack",
+      "industries": ["b2b-saas", "services", "fintech", "operations", "ai-saas"],
+      "artDirections": ["product-demo", "enterprise-trust", "editorial", "neubrutalist"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["faq/categorized"]
+    },
+    {
+      "id": "faq/categorized",
+      "family": "faq",
+      "variant": "categorized",
+      "filePath": "faq/categorized.tsx",
+      "purpose": "FAQ section with category tabs and expandable questions",
+      "density": "high",
+      "geometry": "stack",
+      "industries": ["b2b-saas", "services", "fintech", "operations"],
+      "artDirections": ["enterprise-trust", "product-demo"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["faq/accordion"]
+    },
+    {
+      "id": "team/grid",
+      "family": "team",
+      "variant": "grid",
+      "filePath": "team/grid.tsx",
+      "purpose": "Team photo grid with hover details and social links",
+      "density": "medium",
+      "geometry": "grid",
+      "industries": ["services", "b2b-saas", "fintech", "operations"],
+      "artDirections": ["editorial", "enterprise-trust"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["team/featured"]
+    },
+    {
+      "id": "team/featured",
+      "family": "team",
+      "variant": "featured",
+      "filePath": "team/featured.tsx",
+      "purpose": "Leadership spotlight with large photos and detailed bios",
+      "density": "medium",
+      "geometry": "split",
+      "industries": ["services", "b2b-saas", "fintech", "operations"],
+      "artDirections": ["enterprise-trust", "editorial"],
+      "requiresProofType": null,
+      "disallowedAdjacencies": ["team/grid"]
     }
   ]
 }

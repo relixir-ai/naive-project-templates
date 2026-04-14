@@ -16,7 +16,7 @@ export const meta = {
   density: "medium",
   geometry: "open",
   industries: ["publishing", "developer-tools", "fintech", "b2b-saas"],
-  artDirections: ["editorial", "product-demo", "enterprise-trust"],
+  artDirections: ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
   requiresProofType: "logos",
   disallowedAdjacencies: ["hero/stat-led"],
   tokensRequired: ["color-fg", "color-bg", "color-accent", "font-heading", "font-body"],

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "@/lib/motion";
 import { ButtonLink } from "../shared/primitives/Button";
 import { Container } from "../shared/primitives/Container";
 import { GlowEdge } from "../shared/primitives/GlowEdge";
@@ -32,17 +35,18 @@ interface PricingPlan {
 }
 
 interface PricingCardsProps {
+  id?: string;
   eyebrow?: string;
   heading: string;
   intro?: string;
   plans: PricingPlan[];
 }
 
-export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsProps) {
+export function PricingCards({ id, eyebrow, heading, intro, plans }: PricingCardsProps) {
   return (
-    <Section className="bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <Section id={id} className="bg-[var(--color-bg)] text-[var(--color-fg)]">
       <Container>
-        <div className="space-y-10">
+        <div className="space-y-12">
           <div className="max-w-2xl space-y-3">
             {eyebrow ? (
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-accent)]">{eyebrow}</p>
@@ -57,13 +61,21 @@ export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsPro
             ) : null}
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-3">
-            {plans.map((plan) => (
-              <article
+          <div className="grid gap-6 lg:grid-cols-3">
+            {plans.map((plan, index) => (
+              <motion.article
                 key={plan.name}
-                className={`relative overflow-hidden flex h-full flex-col rounded-[var(--radius-card)] border p-6 shadow-[var(--shadow-2)] ${
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={`group relative overflow-hidden flex h-full flex-col rounded-[var(--radius-card)] border p-6 shadow-[var(--shadow-2)] transition-shadow hover:shadow-[var(--shadow-3)] ${
                   plan.featured
-                    ? "border-[var(--color-accent)] bg-[var(--color-panel-solid)]"
+                    ? "border-[var(--color-accent)] bg-[var(--color-panel-solid)] lg:-my-4 lg:py-10"
                     : "border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-surface)_88%,transparent)]"
                 }`}
               >
@@ -118,7 +130,7 @@ export function PricingCards({ eyebrow, heading, intro, plans }: PricingCardsPro
                   </ButtonLink>
                 </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>

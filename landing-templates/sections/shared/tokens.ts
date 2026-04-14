@@ -5,12 +5,19 @@ export type SectionFamily =
   | "how-it-works"
   | "pricing"
   | "cta"
-  | "footer";
+  | "footer"
+  | "testimonials"
+  | "comparison"
+  | "stats"
+  | "demo"
+  | "integrations"
+  | "faq"
+  | "team";
 
 export type SectionDensity = "low" | "medium" | "high";
 export type SectionGeometry = "open" | "grid" | "split" | "stack" | "list";
 export type EstimatedHeight = "small" | "medium" | "large";
-export type ArtDirection = "editorial" | "product-demo" | "enterprise-trust";
+export type ArtDirection = "editorial" | "product-demo" | "enterprise-trust" | "neubrutalist";
 
 export type TokenKey =
   | "color-fg" | "color-bg" | "color-surface" | "color-surface-2" | "color-panel-solid"

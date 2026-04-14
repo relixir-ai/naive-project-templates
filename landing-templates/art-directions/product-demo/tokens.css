@@ -51,6 +51,58 @@
   --space-section-y: 6rem;
 }
 
+/* ─── Glassmorphism utilities ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-nav {
+  background: rgba(7, 17, 28, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Gradient mesh backgrounds ─── */
+.mesh-purple-blue {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse at 20% 30%, hsla(270, 85%, 55%, 0.4) 0, transparent 50%),
+    radial-gradient(ellipse at 80% 15%, hsla(210, 90%, 60%, 0.4) 0, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, hsla(330, 80%, 50%, 0.25) 0, transparent 50%);
+}
+
+.mesh-ocean {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse at 15% 25%, hsla(200, 90%, 50%, 0.4) 0, transparent 45%),
+    radial-gradient(ellipse at 85% 75%, hsla(180, 85%, 45%, 0.35) 0, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, hsla(220, 80%, 55%, 0.3) 0, transparent 55%);
+}
+
+/* ─── Noise texture overlay ─── */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+
 /* ─── TraceLine animation keyframes ─── */
 @keyframes trace-ltr {
   from { transform: translateX(-100%); }

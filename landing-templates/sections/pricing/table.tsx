@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonLink } from "../shared/primitives/Button";
 import { Container } from "../shared/primitives/Container";
 import { TraceLine } from "../shared/primitives/TraceLine";

@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "@/lib/motion";
 import { Container } from "../shared/primitives/Container";
 import { GlowEdge } from "../shared/primitives/GlowEdge";
@@ -16,7 +18,7 @@ export const meta = {
   density: "medium",
   geometry: "split",
   industries: ["developer-tools", "fintech", "b2b-saas", "publishing"],
-  artDirections: ["editorial", "product-demo", "enterprise-trust"],
+  artDirections: ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
   disallowedAdjacencies: ["cta/inline"],
   tokensRequired: ["color-bg", "color-surface", "color-fg", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "medium",

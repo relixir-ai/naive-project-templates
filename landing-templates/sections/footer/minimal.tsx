@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "../shared/primitives/Container";
 import { TraceLine } from "../shared/primitives/TraceLine";
 import { Section } from "../shared/primitives/Section";
@@ -11,7 +13,7 @@ export const meta = {
   density: "low",
   geometry: "split",
   industries: ["developer-tools", "fintech", "publishing", "services"],
-  artDirections: ["editorial", "product-demo", "enterprise-trust"],
+  artDirections: ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
   disallowedAdjacencies: [],
   tokensRequired: ["color-bg", "color-fg", "color-border", "font-body"],
   estimatedHeight: "small",

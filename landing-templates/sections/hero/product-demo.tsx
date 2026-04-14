@@ -19,7 +19,6 @@ export const meta = {
   geometry: "split",
   industries: ["developer-tools", "ai-saas", "operations", "open-source"],
   artDirections: ["product-demo", "enterprise-trust"],
-  requiresProofType: null,
   disallowedAdjacencies: ["social-proof/pull-quote"],
   tokensRequired: ["color-fg", "color-bg", "color-surface", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",

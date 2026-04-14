@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "../shared/primitives/Container";
 import { TraceLine } from "../shared/primitives/TraceLine";
 import { Section } from "../shared/primitives/Section";

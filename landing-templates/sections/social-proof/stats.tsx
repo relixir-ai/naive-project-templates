@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "../shared/primitives/Container";
 import { GridOverlay } from "../shared/primitives/GridOverlay";
 import { MetricRail } from "../shared/primitives/MetricRail";

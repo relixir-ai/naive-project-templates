@@ -14,7 +14,7 @@ export const meta = {
   density: "medium",
   geometry: "list",
   industries: ["publishing", "developer-tools", "fintech", "b2b-saas", "operations"],
-  artDirections: ["editorial", "product-demo", "enterprise-trust"],
+  artDirections: ["editorial", "product-demo", "enterprise-trust", "neubrutalist"],
   disallowedAdjacencies: ["features/bento", "features/asymmetric-grid"],
   tokensRequired: ["color-fg", "color-bg", "color-border", "color-accent", "font-heading", "font-body"],
   estimatedHeight: "large",

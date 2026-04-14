@@ -32,6 +32,12 @@ interface HeroCustomProps {
   secondaryCta?: { text: string; href: string };
   supportingPoints?: string[];
   layout?: "auto" | "single-column" | "split";
+  motionProfile?:
+    | "minimal-fade"
+    | "staggered-entrance"
+    | "trace-draw"
+    | "media-reveal"
+    | "proof-rise";
   media?: {
     type: "image" | "placeholder";
     src?: string;
@@ -56,12 +62,16 @@ export function HeroCustom({
   secondaryCta,
   supportingPoints = [],
   layout = "auto",
+  motionProfile = "staggered-entrance",
   media,
   aside,
 }: HeroCustomProps) {
   const hasAside = Boolean(aside?.label || aside?.title || aside?.body || aside?.proof?.length);
   const hasMedia = Boolean(media?.type);
   const useSplit = layout === "split" || (layout === "auto" && (hasAside || hasMedia));
+  const heroMotion = getHeroMotion(motionProfile);
+  const mediaMotion = motionProfile === "media-reveal" ? heroMotion.media : heroMotion.card;
+  const asideMotion = motionProfile === "proof-rise" ? heroMotion.proof : heroMotion.card;
 
   return (
     <Section className="overflow-hidden bg-[var(--color-bg)] text-[var(--color-fg)]">
@@ -77,10 +87,10 @@ export function HeroCustom({
           <div className="space-y-8">
             {eyebrow ? (
               <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={heroMotion.eyebrow.initial}
+                whileInView={heroMotion.eyebrow.whileInView}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
+                transition={heroMotion.eyebrow.transition}
                 className="text-xs uppercase tracking-[0.26em] text-[var(--color-accent)]"
               >
                 {eyebrow}
@@ -94,10 +104,10 @@ export function HeroCustom({
                 </p>
               ) : null}
               <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={heroMotion.headline.initial}
+                whileInView={heroMotion.headline.whileInView}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                transition={heroMotion.headline.transition}
                 className="max-w-5xl font-heading text-6xl font-semibold tracking-[-0.06em] sm:text-7xl lg:text-[6.5rem] lg:leading-[0.95]"
               >
                 {headline}
@@ -109,10 +119,10 @@ export function HeroCustom({
                 ) : null}
               </motion.h1>
               <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={heroMotion.subhead.initial}
+                whileInView={heroMotion.subhead.whileInView}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+                transition={heroMotion.subhead.transition}
                 className="max-w-2xl text-lg leading-8 text-[var(--color-muted)]"
               >
                 {subhead}
@@ -120,10 +130,10 @@ export function HeroCustom({
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={heroMotion.cta.initial}
+              whileInView={heroMotion.cta.whileInView}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.14 }}
+              transition={heroMotion.cta.transition}
               className="flex flex-col gap-3 sm:flex-row"
             >
               <ButtonLink href={primaryCta.href}>{primaryCta.text}</ButtonLink>
@@ -136,10 +146,10 @@ export function HeroCustom({
 
             {supportingPoints.length ? (
               <motion.ul
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={heroMotion.support.initial}
+                whileInView={heroMotion.support.whileInView}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.55, ease: "easeOut", delay: 0.18 }}
+                transition={heroMotion.support.transition}
                 className={`grid gap-3 pt-2 text-sm text-[var(--color-subtle)] sm:grid-cols-2 ${useSplit ? "" : "max-w-3xl"}`}
               >
                 {supportingPoints.slice(0, 4).map((point) => (
@@ -157,19 +167,28 @@ export function HeroCustom({
 
           {useSplit ? (
             <motion.aside
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={asideMotion.initial}
+              whileInView={asideMotion.whileInView}
               viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
+              transition={asideMotion.transition}
               className="relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-2)] lg:p-8"
             >
               <div className="space-y-5">
                 <div className="max-w-28">
-                  <TraceLine delay={0.12} duration={3.4} />
+                  <TraceLine
+                    delay={motionProfile === "trace-draw" ? 0.22 : 0.12}
+                    duration={motionProfile === "trace-draw" ? 4.2 : 3.4}
+                  />
                 </div>
 
                 {media?.type === "image" && media.src ? (
-                  <figure className="space-y-3">
+                  <motion.figure
+                    initial={mediaMotion.initial}
+                    whileInView={mediaMotion.whileInView}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={mediaMotion.transition}
+                    className="space-y-3"
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={media.src}
@@ -181,17 +200,21 @@ export function HeroCustom({
                         {media.caption}
                       </figcaption>
                     ) : null}
-                  </figure>
+                  </motion.figure>
                 ) : media?.type === "placeholder" ? (
-                  <figure
+                  <motion.figure
                     data-placeholder="true"
+                    initial={mediaMotion.initial}
+                    whileInView={mediaMotion.whileInView}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={mediaMotion.transition}
                     className="space-y-3 rounded-[calc(var(--radius-card)-0.5rem)] border border-[var(--color-border)] bg-[var(--color-bg)]/60 p-4"
                   >
                     <div className="aspect-[4/3] rounded-[calc(var(--radius-card)-0.75rem)] bg-[var(--color-surface)]" />
                     <figcaption className="text-xs uppercase tracking-[0.18em] text-[var(--color-subtle)]">
                       {media.caption ?? "REPLACE: hero visual"}
                     </figcaption>
-                  </figure>
+                  </motion.figure>
                 ) : null}
 
                 {aside?.label ? (
@@ -213,7 +236,13 @@ export function HeroCustom({
                 ) : null}
 
                 {aside?.proof?.length ? (
-                  <div className="grid gap-3 border-t border-[var(--color-border)] pt-5 text-sm">
+                  <motion.div
+                    initial={heroMotion.proof.initial}
+                    whileInView={heroMotion.proof.whileInView}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={heroMotion.proof.transition}
+                    className="grid gap-3 border-t border-[var(--color-border)] pt-5 text-sm"
+                  >
                     {aside.proof.slice(0, 3).map((item) => (
                       <div key={item} className="flex items-start gap-3">
                         <span
@@ -223,7 +252,7 @@ export function HeroCustom({
                         <span className="text-[var(--color-subtle)]">{item}</span>
                       </div>
                     ))}
-                  </div>
+                  </motion.div>
                 ) : null}
               </div>
             </motion.aside>
@@ -232,4 +261,153 @@ export function HeroCustom({
       </Container>
     </Section>
   );
+}
+
+function getHeroMotion(
+  motionProfile: NonNullable<HeroCustomProps["motionProfile"]>,
+) {
+  const ease = [0.16, 1, 0.3, 1] as const;
+  const base = {
+    eyebrow: {
+      initial: { opacity: 0, y: 10 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.42, ease: "easeOut" as const },
+    },
+    headline: {
+      initial: { opacity: 0, y: 24 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.64, ease },
+    },
+    subhead: {
+      initial: { opacity: 0, y: 18 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.54, ease, delay: 0.08 },
+    },
+    cta: {
+      initial: { opacity: 0, y: 16 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.52, ease, delay: 0.14 },
+    },
+    support: {
+      initial: { opacity: 0, y: 10 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.5, ease: "easeOut" as const, delay: 0.18 },
+    },
+    card: {
+      initial: { opacity: 0, y: 24 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.58, ease, delay: 0.12 },
+    },
+    media: {
+      initial: { opacity: 0, scale: 0.98, y: 12 },
+      whileInView: { opacity: 1, scale: 1, y: 0 },
+      transition: { duration: 0.62, ease, delay: 0.12 },
+    },
+    proof: {
+      initial: { opacity: 0, y: 16 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.5, ease, delay: 0.18 },
+    },
+  };
+
+  if (motionProfile === "minimal-fade") {
+    return {
+      ...base,
+      eyebrow: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.3, ease: "easeOut" as const },
+      },
+      headline: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.42, ease: "easeOut" as const },
+      },
+      subhead: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.38, ease: "easeOut" as const, delay: 0.05 },
+      },
+      cta: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.34, ease: "easeOut" as const, delay: 0.08 },
+      },
+      support: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.32, ease: "easeOut" as const, delay: 0.1 },
+      },
+      card: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.36, ease: "easeOut" as const, delay: 0.08 },
+      },
+      media: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.4, ease: "easeOut" as const, delay: 0.08 },
+      },
+      proof: {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.34, ease: "easeOut" as const, delay: 0.1 },
+      },
+    };
+  }
+
+  if (motionProfile === "trace-draw") {
+    return {
+      ...base,
+      eyebrow: {
+        initial: { opacity: 0, x: -8 },
+        whileInView: { opacity: 1, x: 0 },
+        transition: { duration: 0.38, ease: "easeOut" as const },
+      },
+      headline: {
+        initial: { opacity: 0, y: 18 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.56, ease },
+      },
+      proof: {
+        initial: { opacity: 0, x: 10 },
+        whileInView: { opacity: 1, x: 0 },
+        transition: { duration: 0.46, ease, delay: 0.2 },
+      },
+    };
+  }
+
+  if (motionProfile === "media-reveal") {
+    return {
+      ...base,
+      card: {
+        initial: { opacity: 0, x: 20 },
+        whileInView: { opacity: 1, x: 0 },
+        transition: { duration: 0.58, ease, delay: 0.14 },
+      },
+      media: {
+        initial: { opacity: 0, scale: 0.94, clipPath: "inset(8% 8% 8% 8% round 1.5rem)" },
+        whileInView: { opacity: 1, scale: 1, clipPath: "inset(0% 0% 0% 0% round 1.5rem)" },
+        transition: { duration: 0.7, ease, delay: 0.14 },
+      },
+    };
+  }
+
+  if (motionProfile === "proof-rise") {
+    return {
+      ...base,
+      card: {
+        initial: { opacity: 0, y: 28 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.54, ease, delay: 0.12 },
+      },
+      proof: {
+        initial: { opacity: 0, y: 22 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.48, ease, delay: 0.22 },
+      },
+    };
+  }
+
+  return base;
 }

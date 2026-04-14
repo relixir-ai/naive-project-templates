@@ -51,6 +51,16 @@
         "credibility-first"
       ]
     },
+    "motionProfile": {
+      "required": true,
+      "enum": [
+        "minimal-fade",
+        "staggered-entrance",
+        "trace-draw",
+        "media-reveal",
+        "proof-rise"
+      ]
+    },
     "paletteFamily": {
       "required": true,
       "enum": [
@@ -81,6 +91,26 @@
     "ctaCount": {
       "primary": 1,
       "secondaryOptional": 1
+    }
+  },
+  "motionGuardrails": {
+    "rule": "Motion should reinforce the chosen hero mode, not compensate for weak composition.",
+    "avoid": [
+      "floating decorative blobs",
+      "constant looped motion above the fold",
+      "inventing a custom animation system per hero"
+    ],
+    "prefer": [
+      "one clear motion profile tied to the hero mode",
+      "reveals that improve hierarchy and focus",
+      "subtle movement over novelty for trust-sensitive pages"
+    ],
+    "recommendedByMode": {
+      "type-led": ["staggered-entrance", "trace-draw", "minimal-fade"],
+      "image-led": ["media-reveal", "staggered-entrance"],
+      "proof-led": ["proof-rise", "trace-draw"],
+      "single-column manifesto": ["minimal-fade", "staggered-entrance"],
+      "split narrative": ["staggered-entrance", "proof-rise", "media-reveal"]
     }
   },
   "colorGuardrails": {
